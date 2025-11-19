@@ -186,10 +186,10 @@ sys.stdout.write('\x1b]2;𓆩【🧬 𝐑𝐀𝐉𝐄𝐒𝐇 KING🧬】𓆪 \x
 
 import time, sys, os
 
-# GANTI WARNA TEMA DI SINI (PREMIUM NEON)
-THEME_PRIMARY = "\033[38;5;117m"   # Electric Blue
-THEME_ACCENT  = "\033[38;5;207m"   # Royal Magenta
-THEME_TITLE   = "\033[38;5;141m"   # Violet Crystal
+# WARNA PREMIUM ULTRA NEON
+THEME_PRIMARY = "\033[38;5;51m"    # Cyan Laser Neon
+THEME_ACCENT  = "\033[38;5;219m"   # Hot Pink Neon
+THEME_TITLE   = "\033[38;5;165m"   # Purple Ultra Glow
 RESET         = "\033[0m"
 
 def animate(text, delay=0.002):
@@ -219,8 +219,9 @@ def ____banner____():
 
 {THEME_PRIMARY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{RESET}
 """
-    
+
     animate(banner_text, delay=0.0008)
+
     
 def creationyear(uid):
     """
