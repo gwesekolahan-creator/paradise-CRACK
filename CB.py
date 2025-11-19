@@ -222,8 +222,6 @@ banner_text = f"""
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 """
 
-    animate(banner_text, delay=0.0008)
-
 def creationyear(uid):
     """
     Estimates the Facebook account creation year based on the UID.
