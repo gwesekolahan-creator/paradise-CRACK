@@ -360,7 +360,6 @@ def old_One():
         f"\x1b[1;38;5;15m>\x1b[38;5;201m×\x1b[1;38;5;15m<"
         f"\x1b[38;5;51mUSE MONTORMULOK MOD FOR GOOD RESULT\x1b[0m"
     )
-
         linex()
         for mal in user:
             uid = star + mal
