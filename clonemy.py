@@ -348,8 +348,19 @@ def old_One():
     meth = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
     with tred(max_workers=30) as pool:
         ____banner____()
-        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G} {limit}{W}")
-        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
+        print(
+        f"       \x1b[38;5;201m(\x1b[1;38;5;15m★\x1b[38;5;201m)"
+        f"\x1b[1;38;5;15m>\x1b[38;5;201m×\x1b[1;38;5;15m<"
+        f"\x1b[38;5;51mTOTAL ID FROM JEBOL {Y}: "
+        f"\x1b[1;38;5;46m{limit}\x1b[0m"
+    )
+    
+    print(
+        f"       \x1b[38;5;201m(\x1b[1;38;5;15m★\x1b[38;5;201m)"
+        f"\x1b[1;38;5;15m>\x1b[38;5;201m×\x1b[1;38;5;15m<"
+        f"\x1b[38;5;51mUSE MONTORMULOK MOD FOR GOOD RESULT\x1b[0m"
+    )
+
         linex()
         for mal in user:
             uid = star + mal
