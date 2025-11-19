@@ -444,7 +444,7 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
-        bar_length = 32
+        bar_length = 5
         progress = loop % (bar_length + 1)
 
         filled = "█" * progress
@@ -453,8 +453,7 @@ def login_1(uid):
         sys.stdout.write(
             f"\r"
             f"\x1b[38;5;201m✦\x1b[38;5;207m✦\x1b[38;5;213m✦ "
-            f"\x1b[1;38;5;51m《\x1b[38;5;45m🌐 PRDS v2.0 NEON\x1b[1;38;5;51m》 "
-            f"\x1b[38;5;207m⟦\x1b[38;5;51mLoop: \x1b[1;38;5;87m{loop}\x1b[38;5;207m⟧ "
+            f"\x1b[1;38;5;87m{loop} "
             f"\x1b[38;5;207m⟦\x1b[38;5;87mOK:\x1b[1;38;5;46m {len(oks)}\x1b[38;5;207m⟧ "
             f"\x1b[38;5;51m▐\x1b[38;5;87m{filled}\x1b[38;5;240m{empty}\x1b[38;5;51m▌"
         )
