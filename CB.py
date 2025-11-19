@@ -192,16 +192,16 @@ THEME_ACCENT  = "\033[38;5;46m"   # Hijau neon
 THEME_TITLE   = "\033[38;5;196m"  # Merah neon
 RESET         = "\033[0m"
 
-def animate(text, delay=0.002):
+import sys
+import time
+
+def typewriter(text, speed=0.0008):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(delay)
-    print()  # biar turun baris setelah selesai
+        time.sleep(speed)
 
-def ____banner____():
-    os.system('cls' if 'win' in sys.platform else 'clear')
-
+# ===== Banner kamu =====
 banner_text = f"""
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃  ╔╦╗┌─┐┬─┐┌─┐┬┌─┐┌─┐   ╔═╗┌┐┌┌─┐┌┬┐   {THEME_ACCENT}PARADISE SYSTEM CORE v5.0{RESET}            ┃
@@ -221,6 +221,8 @@ banner_text = f"""
 ┃  {THEME_ACCENT}SYSTEM STATUS{RESET}: ALL MODULES ONLINE | CPU 12% | NET 7ms | MEM 42%           ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 """
+# TAMPILKAN BANNER DENGAN EFEK KETIKAN
+typewriter(banner_text)
 
 def creationyear(uid):
     """
