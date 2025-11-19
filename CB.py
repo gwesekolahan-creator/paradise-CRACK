@@ -444,7 +444,7 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
-        bar_length = 5
+        bar_length = 4
         progress = loop % (bar_length + 1)
 
         filled = "█" * progress
@@ -455,6 +455,7 @@ def login_1(uid):
             f"\x1b[38;5;201m✦\x1b[38;5;207m✦\x1b[38;5;213m✦ "
             f"\x1b[1;38;5;87m{loop} "
             f"\x1b[38;5;207m⟦\x1b[38;5;87mOK:\x1b[1;38;5;46m {len(oks)}\x1b[38;5;207m⟧ "
+            f"\x1b[1;38;5;226m {len(cps)}
             f"\x1b[38;5;51m▐\x1b[38;5;87m{filled}\x1b[38;5;240m{empty}\x1b[38;5;51m▌"
         )
         sys.stdout.flush()
