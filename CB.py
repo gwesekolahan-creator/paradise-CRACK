@@ -186,44 +186,42 @@ sys.stdout.write('\x1b]2;𓆩【🧬 𝐑𝐀𝐉𝐄𝐒𝐇 KING🧬】𓆪 \x
 
 import time, sys, os
 
-# GANTI WARNA TEMA DI SINI
-THEME_PRIMARY = "\033[38;5;51m"   # Biru neon
-THEME_ACCENT  = "\033[38;5;46m"   # Hijau neon
-THEME_TITLE   = "\033[38;5;196m"  # Merah neon
+# GANTI WARNA TEMA DI SINI (PREMIUM NEON)
+THEME_PRIMARY = "\033[38;5;117m"   # Electric Blue
+THEME_ACCENT  = "\033[38;5;207m"   # Royal Magenta
+THEME_TITLE   = "\033[38;5;141m"   # Violet Crystal
 RESET         = "\033[0m"
 
-import sys
-import time
-
-def typewriter(text, speed=0.0008):
+def animate(text, delay=0.002):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(speed)
+        time.sleep(delay)
+    print()
 
-# ===== Banner kamu =====
-banner_text = f"""
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃  ╔╦╗┌─┐┬─┐┌─┐┬┌─┐┌─┐   ╔═╗┌┐┌┌─┐┌┬┐   {THEME_ACCENT}PARADISE SYSTEM CORE v5.0{RESET}            ┃
-┃   ║║├┤ ├┬┘│  ││ │├┤    ╠═╣││││ │ ││   {THEME_ACCENT}NEON-HUD // FINAL BUILD{RESET}              ┃
-┃  ═╩╝└─┘┴└─└─┘┴└─┘└─┘   ╩ ╩┘└┘└─┘─┴┘   {THEME_ACCENT}INFRASTRUCTURE ONLINE{RESET}                ┃
-┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-┃ {THEME_TITLE}● {THEME_ACCENT}VERSION     {RESET}: {THEME_PRIMARY}5.0 — FINAL BUILD 🚀{RESET}                        ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}AUTHOR      {RESET}: {THEME_PRIMARY}PARADISE | CYBER CROOOTTT 👑{RESET}                 ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}GITHUB      {RESET}: {THEME_PRIMARY}github.com/300_CROT_DIDALAM{RESET}                  ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}STATUS      {RESET}: {THEME_ACCENT}ACTIVE 🔥{RESET}  | MULTI-TASK ENGINE ⚡              ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}SERVERS     {RESET}: {THEME_PRIMARY}[SG] [US] [JP] [ID] 🌍{RESET}  | 4-REGION BOOST     ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}FEATURES    {RESET}: {THEME_PRIMARY}BRUTE⚔  | API⚡  | LOGIN🔑  | DUMP📂{RESET}          ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}SECURITY    {RESET}: {THEME_TITLE}ENCRYPTED 🔒  | ANTI-DETECT 🛡️ | SAFE ✔{RESET}        ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}USERS       {RESET}: {THEME_PRIMARY}1200+ ACTIVE 👥{RESET}                               ┃
-┃ {THEME_TITLE}● {THEME_ACCENT}UPDATED     {RESET}: {THEME_PRIMARY}14-NOV-2025 🗓️{RESET}                               ┃
-┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-┃  {THEME_ACCENT}SYSTEM STATUS{RESET}: ALL MODULES ONLINE | CPU 12% | NET 7ms | MEM 42%           ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+def ____banner____():
+    os.system('cls' if 'win' in sys.platform else 'clear')
+
+    banner_text = f"""
+{THEME_PRIMARY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{THEME_ACCENT}                  PARADISE PRIVATE TOOLS — FINAL BUILD 5.0
+{THEME_PRIMARY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ {THEME_TITLE}● {THEME_ACCENT}VERSION     {RESET}: {THEME_PRIMARY}5.0 FINAL BUILD
+ {THEME_TITLE}● {THEME_ACCENT}AUTHOR      {RESET}: {THEME_PRIMARY}PARADISE | CYBER CROOOTTT
+ {THEME_TITLE}● {THEME_ACCENT}GITHUB      {RESET}: {THEME_PRIMARY}github.com/300_CROT_DIDALAM
+ {THEME_TITLE}● {THEME_ACCENT}STATUS      {RESET}: {THEME_ACCENT}ACTIVE 🔥  {RESET}| MULTI-TASK ⚡
+ {THEME_TITLE}● {THEME_ACCENT}SERVERS     {RESET}: {THEME_PRIMARY}[SG] [US] [JP] [ID] 🌍
+ {THEME_TITLE}● {THEME_ACCENT}FEATURES    {RESET}: {THEME_PRIMARY}BRUTE⚔ | API⚡ | LOGIN🔑 | DUMP📂
+ {THEME_TITLE}● {THEME_ACCENT}SECURITY    {RESET}: {THEME_TITLE}ENCRYPTED 🔒 | ANTI-DETECT 🛡️
+ {THEME_TITLE}● {THEME_ACCENT}USERS       {RESET}: {THEME_PRIMARY}1200+ ACTIVE 👥
+ {THEME_TITLE}● {THEME_ACCENT}UPDATED     {RESET}: {THEME_PRIMARY}14-NOV-2025 🗓️
+
+{THEME_PRIMARY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{RESET}
 """
-# TAMPILKAN BANNER DENGAN EFEK KETIKAN
-typewriter(banner_text)
-
+    
+    animate(banner_text, delay=0.0008)
+    
 def creationyear(uid):
     """
     Estimates the Facebook account creation year based on the UID.
