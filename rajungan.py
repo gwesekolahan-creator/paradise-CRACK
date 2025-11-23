@@ -184,6 +184,9 @@ sys.stdout.write('\x1b]2;𓆩【🧬 𝐑𝐀𝐉𝐄𝐒𝐇 KING🧬】𓆪 \x
 import time, sys, os
 
 # WARNA
+THEME_PRIMARY = "\033[38;5;51m"    # Cyan Laser Neon
+THEME_ACCENT  = "\033[38;5;219m"   # Hot Pink Neon
+THEME_TITLE   = "\033[38;5;165m"   # Purple Ultra Glow
 R = "\033[91m"
 Y = "\033[93m"
 G = "\033[92m"
