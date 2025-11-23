@@ -191,24 +191,36 @@ P = "\033[95m"
 RESET = "\033[0m"
 
 # FUNGSI RAINBOW
-def rainbow(text):
-    colors = [R, Y, G, C, B, P]
-    result = ""
-    for i, char in enumerate(text):
-        result += colors[i % len(colors)] + char
-    return result + RESET
+def animate(text, delay=0.002):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
 
-# KATA-KATA MUTIARA
-print(f"{Y}● {C}{rainbow('KEHIDUPAN')}{RESET} : {G}{rainbow('Perjalanan panjang yang mengajarkan kita bertahan.')}{RESET}")
-print(f"{Y}● {C}{rainbow('MOTIVASI')}{RESET} : {G}{rainbow('Hancur sekali dua kali itu wajar, bangkit itu kewajiban.')}{RESET}")
-print(f"{Y}● {C}{rainbow('KETENANGAN')}{RESET} : {G}{rainbow('Semua badai pada akhirnya akan lewat, tetaplah berdiri.')}{RESET}")
-print(f"{Y}● {C}{rainbow('HARAPAN')}{RESET} : {G}{rainbow('Gelap bukan akhir, hanya tempat cahaya memulai.')}{RESET}")
-print(f"{Y}● {C}{rainbow('PERJUANGAN')}{RESET} : {G}{rainbow('Jika lelah, istirahatlah—jangan menyerah.')}{RESET}")
-print(f"{Y}● {C}{rainbow('LANGKAH BARU')}{RESET} : {G}{rainbow('Tidak harus cepat, yang penting terus maju.')}{RESET}")
-print(f"{Y}● {C}{rainbow('KEYAKINAN')}{RESET} : {G}{rainbow('Percaya pada proses, bukan pada tergesa-gesa.')}{RESET}")
-print(f"{Y}● {C}{rainbow('MENTAL KUAT')}{RESET} : {G}{rainbow('Orang hebat dibentuk dari luka yang tidak terlihat.')}{RESET}")
-print(f"{Y}● {C}{rainbow('CITA-CITA')}{RESET} : {G}{rainbow('Hanya kamu yang tahu seberapa jauh kamu bisa melangkah.')}{RESET}")
-print(f"{Y}● {C}{rainbow('HARI INI')}{RESET} : {G}{rainbow('Mulai lagi, meski kemarin hancur tak tersisa.')}{RESET}")
+def ____banner____():
+    os.system('cls' if 'win' in sys.platform else 'clear')
+
+    banner_text = f"""
+{THEME_PRIMARY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{THEME_ACCENT}                 PARADISE PRIVATE TOOLS — MOTIVATION PANEL
+{THEME_PRIMARY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ {THEME_TITLE}● {THEME_ACCENT}KEHIDUPAN   {RESET}: {THEME_PRIMARY}{rainbow('Perjalanan panjang yang mengajarkan kita bertahan.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}MOTIVASI    {RESET}: {THEME_PRIMARY}{rainbow('Hancur sekali dua kali itu wajar, bangkit itu kewajiban.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}KETENANGAN  {RESET}: {THEME_PRIMARY}{rainbow('Badai sebesar apapun pasti ada akhirnya.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}HARAPAN     {RESET}: {THEME_PRIMARY}{rainbow('Gelap bukan akhir, hanya tempat cahaya memulai.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}PERJUANGAN  {RESET}: {THEME_PRIMARY}{rainbow('Jika lelah, istirahatlah—jangan menyerah.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}LANGKAH     {RESET}: {THEME_PRIMARY}{rainbow('Tidak harus cepat, yang penting terus maju.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}MENTAL      {RESET}: {THEME_PRIMARY}{rainbow('Orang kuat dibentuk dari luka yang tidak terlihat.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}CITA-CITA   {RESET}: {THEME_PRIMARY}{rainbow('Hanya kamu yang tahu seberapa jauh kamu bisa pergi.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}HARI INI    {RESET}: {THEME_PRIMARY}{rainbow('Mulai lagi, meski kemarin hancur tak bersisa.')}{RESET}
+ {THEME_TITLE}● {THEME_ACCENT}ENERGI BARU {RESET}: {THEME_PRIMARY}{rainbow('Hidup terus berjalan—kamu juga harus begitu.')}{RESET}
+
+{THEME_PRIMARY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{RESET}
+"""
+
+    animate(banner_text, delay=0.0008)
 
 def creationyear(uid):
     """
