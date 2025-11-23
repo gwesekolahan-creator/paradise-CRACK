@@ -181,6 +181,8 @@ def window1():
 # Set window title
 sys.stdout.write('\x1b]2;𓆩【🧬 𝐑𝐀𝐉𝐄𝐒𝐇 KING🧬】𓆪 \x07')
 
+import time, sys, os
+
 # WARNA
 R = "\033[91m"
 Y = "\033[93m"
