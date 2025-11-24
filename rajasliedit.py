@@ -575,6 +575,9 @@ def login_1(uid):
                 print("\x1b[38;5;51m│\x1b[0m")
                 save_clone(uid, pw)
                 oks.append(uid)
+                
+                sys.stdout.write("\x1b[2K\r") 
+                sys.stdout.flush() 
                 break
 
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
@@ -588,6 +591,9 @@ def login_1(uid):
                 print("\x1b[38;5;51m│\x1b[0m")
                 save_clone(uid, pw)
                 oks.append(uid)
+                
+                sys.stdout.write("\x1b[2K\r") 
+                sys.stdout.flush() 
                 break
 
         loop += 1
