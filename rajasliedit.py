@@ -437,15 +437,15 @@ def login_1(uid):
     session = requests.session()
     try:
         sys.stdout.write(
-            f"\r\r\x1b[1;37m>\x1b[38;5;45m+\x1b[1;37m<"
-            f"\x1b[38;5;45m(\x1b[1;37m🌟PARADISE RECORD💦"
-            f"\x1b[38;5;45m)\x1b[1;37m>\x1b[38;5;45m×"
-            f"\x1b[1;37m<\x1b[38;5;45m(\x1b[38;5;192m{loop}"
-            f"\x1b[38;5;45m)\x1b[1;37m>\x1b[38;5;45m×"
-            f"\x1b[1;37m<\x1b[38;5;45m(\x1b[1;37mWOKEH"
-            f"\x1b[38;5;45m)\x1b[1;37m>\x1b[38;5;45m×"
-            f"\x1b[1;37m<\x1b[38;5;45m(\x1b[38;5;192m{len(oks)}"
-            f"\x1b[38;5;45m)"
+            f"\r\r\x1b[1;37m│\x1b[38;5;45m-\x1b[1;37m-"
+            f"\x1b[38;5;45m-\x1b[1;37m🌟PARADISE🌟"
+            f"\x1b[38;5;45m------\x1b[1;37m-\x1b[38;5;45m-"
+            f"\x1b[1;37m-\x1b[38;5;45m(\x1b[38;5;192m{loop}"
+            f"\x1b[38;5;45m)\x1b[1;37m-\x1b[38;5;45m-"
+            f"\x1b[1;37m<\x1b[38;5;45m-\x1b[1;37mWOKEH"
+            f"\x1b[38;5;45m-\x1b[1;37m-\x1b[38;5;45m-"
+            f"\x1b[1;37m-\x1b[38;5;45m(\x1b[38;5;192m{len(oks)}"
+            f"\x1b[38;5;45m-"
 
         )
         sys.stdout.flush()
