@@ -566,13 +566,13 @@ def login_1(uid):
 
             if 'session_key' in res:
                 print("\x1b[2K\r", end="")
-                print("\x1b[38;5;51m    │")
-                print("\x1b[38;5;51m    │")
-                print(f"\x1b[38;5;51m   ├──▶ \x1b[38;5;129mUID   \x1b[38;5;198m: {uid}")
-                print(f"\x1b[38;5;51m   │    ╰──▶\x1b[38;5;129mPASS  \x1b[38;5;198m: {pw}")
-                print(f"\x1b[38;5;51m   │    ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;198m: {creationyear(uid)}")
-                print("\x1b[38;5;51m    │")
-                print("\x1b[38;5;51m    │\x1b[0m")
+                print("\x1b[38;5;51m        │")
+                print("\x1b[38;5;51m        │")
+                print(f"\x1b[38;5;51m        ├──▶ \x1b[38;5;129mUID   \x1b[1;37m: {uid}")
+                print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mPASS  \x1b[38;5;199m: {pw}")
+                print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
+                print("\x1b[38;5;51m        │")
+                print("\x1b[38;5;51m        │\x1b[0m")
                 save_clone(uid, pw)
                 oks.append(uid)
                 
@@ -582,13 +582,13 @@ def login_1(uid):
 
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
                 print("\x1b[2K\r", end="")
-                print("\x1b[38;5;51m    │")
-                print("\x1b[38;5;51m    │")
-                print(f"\x1b[38;5;51m   ├──▶ \x1b[38;5;129mUID   \x1b[1;37m: {uid}")
-                print(f"\x1b[38;5;51m   │    ╰──▶\x1b[38;5;129mPASS  \x1b[38;5;199m: {pw}")
-                print(f"\x1b[38;5;51m   │    ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
-                print("\x1b[38;5;51m    │")
-                print("\x1b[38;5;51m    │\x1b[0m")
+                print("\x1b[38;5;51m        │")
+                print("\x1b[38;5;51m        │")
+                print(f"\x1b[38;5;51m        ├──▶ \x1b[38;5;129mUID   \x1b[1;37m: {uid}")
+                print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mPASS  \x1b[38;5;199m: {pw}")
+                print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
+                print("\x1b[38;5;51m        │")
+                print("\x1b[38;5;51m        │\x1b[0m")
                 save_clone(uid, pw)
                 oks.append(uid)
                 
