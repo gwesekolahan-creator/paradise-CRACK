@@ -441,7 +441,7 @@ def login_1(uid):
             f"\x1b[38;5;220m🌟PARADISE🌟 "
             f"\x1b[38;5;45m({loop}) "
             f"(WOKEH) "
-            f"(38;5;220m{len(oks)})"
+            f"({len(oks)})"
         )
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
