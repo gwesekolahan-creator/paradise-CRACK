@@ -615,12 +615,12 @@ def login_1(uid):
 
                 # ================= PANEL CP BARU =====================
                 print("\n\033[91m┌" + "─" * 52 + "┐")
-                print("│\x1b[1;32m                      ⚠️ CROOT DEK                      \033[91m│")
+                print("│\033[35;9;3;1m                     CROOT DEK                      \033[91m│")
                 print("├" + "─" * 52 + "┤")
                 print(f"│ \033[97mUID      : \033[93m{uid:<40}\033[91m│")
                 print(f"│ \033[97mPASS     : \033[93m{pw:<40}\033[91m│")
                 print(f"│ \033[97mYEAR     : \033[93m{str(year):<40}\033[91m│")
-                print(f"│ \033[97mSTATUS   : \x1b[1;36mMUNCRATDEK{' ' * 30}│")
+                print(f"│ \033[97mSTATUS   : \x1b[1;36mMUNCRATDEK{' ' * 30}\033[91m│")
                 print(f"│ \033[97mUSER-AG  : \033[93m{ua[:40]:<40}\033[91m│")
                 print("└" + "─" * 52 + "┘\033[0m\n")
     
