@@ -423,9 +423,15 @@ def login_1(uid):
     session = requests.session()
     try:
         sys.stdout.write(
-            f"{U}🌏PRDS🧬"
-            f"{b}~{WH}{loop}{b}~"
-            f"{b}~{WH}OK {len(oks)}{b}~"
+            f"\r\r\x1b[1;37m>\x1b[38;5;196m+\x1b[1;37m<"
+            f"\x1b[38;5;196m(\x1b[1;37m🌏PRDS🧬"
+            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
+            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[38;5;192m{loop}"
+            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
+            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mOK"
+            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
+            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}"
+            f"\x1b[38;5;196m)"
         )
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
