@@ -423,7 +423,7 @@ def login_1(uid):
     session = requests.session()
     try:
         sys.stdout.write(
-            f"\r\r\{U}🌏PRDS🧬"
+            f"{U}🌏PRDS🧬"
             f"{b}~{WH}{loop}{b}~"
             f"{b}~{WH}OK {len(oks)}{b}~"
         )
