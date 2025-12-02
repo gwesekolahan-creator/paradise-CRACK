@@ -18,31 +18,12 @@ from concurrent.futures import ThreadPoolExecutor as tred
 from os import system
 from datetime import datetime
 
-# === Buat folder penyimpanan otomatis ===
-
-BASE_DIR = "/data/data/com.termux/files/home/storage/shared/PARADISE"
-os.makedirs(BASE_DIR, exist_ok=True)
-
 def rainbow(text):
     colors = ["\033[91m", "\033[93m", "\033[92m", "\033[96m", "\033[94m", "\033[95m"]
     result = ""
     for i, char in enumerate(text):
         result += colors[i % len(colors)] + char
     return result + "\033[0m"
-
-# ==========================
-def save_clone(uid, pw):
-    # Ambil tanggal hari ini
-    today = datetime.now().strftime("%Y-%m-%d")
-
-    # Buat nama file dengan tambahan tanggal
-    clone_filename = f"CLONE_{today}.txt"
-    clone_path = os.path.join(BASE_DIR, clone_filename)
-
-    # Simpan data ke file
-    with open(clone_path, "a") as f:
-        f.write(f"{uid}|{pw}\n")
-
 
 # Ensure required modules are installed
 modules = ['requests', 'urllib3', 'mechanize', 'rich']
@@ -619,22 +600,8 @@ def login_1(uid):
                 print(R(8) + "├" + "─" * 45 + "┤")
                 print(R(9) + "│ COOKIE  : " + box(cookie_view) + "│")
                 print(R(10) + "└" + "─" * 45 + "┘\033[0m")
-
-                # Simpan file OK/CP
-                ok_dir = os.path.join(BASE_DIR, "OK")
-                cp_dir = os.path.join(BASE_DIR, "CP")
-                os.makedirs(ok_dir, exist_ok=True)
-                os.makedirs(cp_dir, exist_ok=True)
-
-                if status == "UREP":
-                    save_file = os.path.join(ok_dir, "OK.txt")
-                else:
-                    save_file = os.path.join(cp_dir, "CP.txt")
-
-                with open(save_file, "a") as f:
-                    f.write(f"{uid}|{pw}|{cookie_string}|{ua}\n")
-
-                save_clone(uid, pw)
+                
+                open("/sdcard/PANEL-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 continue
 
@@ -648,7 +615,7 @@ def login_1(uid):
 
                 # ================= PANEL CP BARU =====================
                 print("\n\033[91m┌" + "─" * 52 + "┐")
-                print("│\033[93m                              ⚠️ CROOT DEK          \033[91m│")
+                print("│\033[93m             ⚠️ CROOT DEK              \033[91m│")
                 print("├" + "─" * 52 + "┤")
                 print(f"│ \033[97mUID      : \033[93m{uid:<40}\033[91m│")
                 print(f"│ \033[97mPASS     : \033[93m{pw:<40}\033[91m│")
@@ -657,14 +624,8 @@ def login_1(uid):
                 print(f"│ \033[97mUSER-AG  : \033[93m{ua[:40]:<40}\033[91m│")
                 print("└" + "─" * 52 + "┘\033[0m\n")
     
-                cp_dir = os.path.join(BASE_DIR, "CP")
-                os.makedirs(cp_dir, exist_ok=True)
-
-                with open(os.path.join(cp_dir, "CP.txt"), "a") as st:
-                    st.write(f"{uid}|{pw}|CP|{ua}\n")
-
-                save_clone(uid, pw)
-                cps.append(uid)
+                open("/sdcard/PANEL-OK.txt", "a").write(f"{uid}|{pw}\n")
+                oks.append(uid)
                 continue
 
         loop += 1
