@@ -61,7 +61,7 @@ def tahun(fx: str) -> str:
 def banner():
     os.system("clear")
     print(f"""
-{CY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{g}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 $$$$$$$\   $$$$$$\ $$$$$$$$\ $$$$$$$\  $$$$$$\  $$$$$$\ $$$$$$$$\ 
 $$  __$$\ $$  __$$\\__$$  __|$$  __$$\ \_$$  _|$$  __$$\\__$$  __|
 $$ |  $$ |$$ /  $$ |  $$ |   $$ |  $$ |  $$ |  $$ /  $$ |  $$ |   
@@ -254,32 +254,18 @@ def login1(uid, tl):
                     f"{c['name']}={c['value']}"
                     for c in resp.get("session_cookies", [])
                 )
-                def kotak(warna, teks):
-                    panjang = len(teks) + 2
-                    atas   = f"{WH}┌{'─' * panjang}┐{W}"
-                    isi    = f"{WH}│{W} {warna}{teks}{W} {WH}│{W}"
-                    bawah  = f"{WH}└{'─' * panjang}┘{W}"
-                    return atas + "\n" + isi + "\n" + bawah
-
-
-                # kotak wrap (untuk UA panjang)
-                def kotak_wrap(warna, teks, lebar=60):
-                    lines = textwrap.wrap(teks, width=lebar)
-                    max_len = max(len(line) for line in lines)
-                    atas  = f"{WH}┌{'─' * (max_len + 2)}┐{W}"
-                    isi   = "\n".join([f"{WH}│{W} {warna}{line.ljust(max_len)}{W} {WH}│{W}" for line in lines])
-                    bawah = f"{WH}└{'─' * (max_len + 2)}┘{W}"
-                    return atas + "\n" + isi + "\n" + bawah
-                    
-                print(f"{g}AKUN SUCCESS{W}")
-                print(f"{WH}──────────────────────────────{W}")
-                print(kotak(CY, uid))
-                print(f"{WH}──────────────────────────────{W}")
-                print(kotak(K, pw))
-                print(f"{WH}──────────────────────────────{W}")
-                print(kotak_wrap(U, ua))
-                print(f"{WH}──────────────────────────────{W}")
-                open("/sdcard/CUMI-OK-OK.txt", "a").write(f"{uid}|{pw}\n")
+                print(f"""
+{g}┌──────────────────────────────┐
+│         LOGIN SUCCESS        │
+├──────────────────────────────┤
+│ UID  : {uid}
+│ PASS : {pw}
+│ TAHUN : {tahun(uid)}
+│ COOKIES : {cookies}
+│ USER-AGENTS : {ua}
+└──────────────────────────────┘{w}
+""")
+                open("/sdcard/PATRIOT-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
 
@@ -332,30 +318,33 @@ def login2(uid, tl):
             rp = requests.get(url, headers=headers).json()
 
             if "session_key" in rp or "Please Confirm Email" in str(rp):
-                print(f"""
-{H}┌──────────────────────────┐
-│        AKUN SUKSES         │
-└──────────────────────────┘{W}
+               
+                def kotak(warna, teks):
+                    panjang = len(teks) + 2
+                    atas   = f"{WH}┌{'─' * panjang}┐{W}"
+                    isi    = f"{WH}│{W} {warna}{teks}{W} {WH}│{W}"
+                    bawah  = f"{WH}└{'─' * panjang}┘{W}"
+                    return atas + "\n" + isi + "\n" + bawah
 
-{WH}│──────{W}
-{WH}│{W}
-{WH}│{W}     {CY}┌────────────────────────┐
-{WH}│{W}     │   {uid}   │
-{WH}│{W}     └────────────────────────┘
-{WH}│──────{W}
-{WH}│{W}     {K}┌──────────────┐
-{WH}│{W}     │     {pw}     │
-{WH}│{W}     └──────────────┘
-{WH}│──────{W}
-{WH}│{W}     {U}┌────────────────────────────────────┐
-{WH}│{W}     │ UA:                                   │
-{WH}│{W}     │ {ua} │
-{WH}│{W}     └────────────────────────────────────┘
-{WH}│{W}
-{WH}│{W}     {tahun(uid)}
-{WH}│{W}
-""")
-                open("/sdcard/CUMI-OK-OK.txt", "a").write(f"{uid}|{pw}\n")
+
+                # kotak wrap (untuk UA panjang)
+                def kotak_wrap(warna, teks, lebar=60):
+                    lines = textwrap.wrap(teks, width=lebar)
+                    max_len = max(len(line) for line in lines)
+                    atas  = f"{WH}┌{'─' * (max_len + 2)}┐{W}"
+                    isi   = "\n".join([f"{WH}│{W} {warna}{line.ljust(max_len)}{W} {WH}│{W}" for line in lines])
+                    bawah = f"{WH}└{'─' * (max_len + 2)}┘{W}"
+                    return atas + "\n" + isi + "\n" + bawah
+                    
+                print(f"{g}AKUN SUCCESS{W}")
+                print(f"{WH}──────────────────────────────{W}")
+                print(kotak(CY, uid))
+                print(f"{WH}──────────────────────────────{W}")
+                print(kotak(K, pw))
+                print(f"{WH}──────────────────────────────{W}")
+                print(kotak_wrap(U, ua))
+                print(f"{WH}──────────────────────────────{W}")
+                open("/sdcard/PATRIOT-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
 
