@@ -608,7 +608,7 @@ def login_1(uid):
                 print(f"│{g}                     CROOT DEK                      {m}│")
                 print(f"├" + "─" * 52 + "┤")
                 print(f"│ \033[97mUID      : \033[93m{uid:<40}{m}│")
-                print(f"│ \033[97mPASS     : \033[93m{pw:<40}{m}")
+                print(f"│ \033[97mPASS     : \033[93m{pw:<40}{m}│")
                 print(f"│ \033[97mYEAR     : \033[93m{str(year):<40}{m}│")
                 print(f"│ \033[97mSTATUS   : \x1b[1;36mMUNCRATDEK{' ' * 30}{m}│")
                 print(f"│ \033[97mUSER-AG  : \033[93m{ua[:40]:<40}{m}│")
@@ -705,3 +705,4 @@ def login_2(uid):
 
 if __name__ == '__main__':
     BNG_71_()
+
