@@ -574,6 +574,7 @@ def login_1(uid):
                 cookie_view = cookie_string[:40] + "..." if len(cookie_string) > 40 else cookie_string
                 if cookie_view == "": cookie_view = "NONE"
 
+                print("\033[F\033[K", end="")
                 print(R(0) + "┌" + "─" * 45 + "┐")
                 print(R(1) + "│" + box("       ★  LOGIN RESULT  ★        ", 45) + "│")
                 print(R(2) + "├" + "─" * 45 + "┤")
@@ -602,6 +603,7 @@ def login_1(uid):
                 year = creationyear(uid)
 
                 # ================= PANEL CP BARU =====================
+                print("\033[F\033[K", end="")
                 print(f"\n{m}┌" + "─" * 52 + "┐")
                 print(f"│{g}                     CROOT DEK                      {m}│")
                 print(f"├" + "─" * 52 + "┤")
@@ -702,4 +704,5 @@ def login_2(uid):
         time.sleep(1)
 
 if __name__ == '__main__':
+
     BNG_71_()
