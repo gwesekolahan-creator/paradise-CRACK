@@ -612,7 +612,7 @@ def login_1(uid):
                 print(f"│ \033[97mYEAR     : \033[93m{str(year):<40}{m}│")
                 print(f"│ \033[97mSTATUS   : \x1b[1;36mMUNCRATDEK{' ' * 30}{m}│")
                 print(f"│ \033[97mUSER-AG  : \033[93m{ua[:40]:<40}{m}│")
-                print(f"└" + "─" * 52 + "┘{reset}\n{reset}")
+                print(f"└" + "─" * 52 + "┘\033[0m\n")
     
                 open("/sdcard/PANEL-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
@@ -705,4 +705,5 @@ def login_2(uid):
 
 if __name__ == '__main__':
     BNG_71_()
+
 
