@@ -605,14 +605,14 @@ def login_1(uid):
 
                 # ================= PANEL CP BARU =====================
                 print(f"\n{m}┌" + "─" * 52 + "┐")
-                print(f"│\033[34;3;1m                     CROOT DEK                      {m}│")
+                print(f"│{g}                     CROOT DEK                      {m}│")
                 print(f"├" + "─" * 52 + "┤")
                 print(f"│ \033[97mUID      : \033[93m{uid:<40}{m}│")
                 print(f"│ \033[97mPASS     : \033[93m{pw:<40}{m}")
                 print(f"│ \033[97mYEAR     : \033[93m{str(year):<40}{m}│")
                 print(f"│ \033[97mSTATUS   : \x1b[1;36mMUNCRATDEK{' ' * 30}{m}│")
                 print(f"│ \033[97mUSER-AG  : \033[93m{ua[:40]:<40}{m}│")
-                print("└" + "─" * 52 + "┘{reset}\n")
+                print(f"└" + "─" * 52 + "┘{reset}\n{reset}")
     
                 open("/sdcard/PANEL-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
