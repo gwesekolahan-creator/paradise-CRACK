@@ -548,7 +548,7 @@ def login_1(uid):
             ## ===================== LOGIN BERHASIL =====================
             if 'session_key' in res:
                 print("\033[F\033[K", end="")
-                print(f"{g}⭐{g}PARADISE{g}⭐{g}➤➤➤{g}{uid:<40}🔑{g}{pw:<40}{g}💦{str(year):<40}{g}✔️{reset}\n")
+                print(f"{g}⭐{g}PARADISE{g}⭐{g}➤➤➤{g}{uid}🔑{g}{pw}{g}💦{str(year)}{g}✅✅✅{reset}\n")
                 
                 open("/sdcard/PANEL-SUPER.txt", "a").write(f"{uid}|{pw}\n")
                 cps.append(uid)
@@ -564,7 +564,7 @@ def login_1(uid):
 
                 # ================= PANEL CP BARU =====================
                 print("\033[F\033[K", end="")
-                print(f"{y}⭐{b}PARADISE{y}⭐{b}➤➤➤{y}{uid:<40}🔑{m}{pw:<40}{b}💦{str(year):<40}{g}✔️{reset}\n")
+                print(f"{y}⭐{b}PARADISE{y}⭐{g}➤➤➤{y}{uid}🔑{c}{pw}{r}💦{str(year)}{g}✅{reset}\n")
     
                 open("/sdcard/PANEL-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
@@ -658,4 +658,5 @@ def login_2(uid):
 if __name__ == '__main__':
 
     BNG_71_()
+
 
