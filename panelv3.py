@@ -250,7 +250,8 @@ def clear():
 
 def linex():
     print(f'{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{b}⚡︎{reset}')
-
+    print(f'{m}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{b}⚡︎{reset}')
+    
 
 def BNG_71_():
     """
@@ -308,8 +309,8 @@ def old_One():
     for _ in range(int(limit)):
         data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
         user.append(data)
-    print(f'       {b}📌A        {r}METHOD 1{reset}')
-    print(f'       {b}📌B        {r}METHOD 2{reset}')
+    print(f'       {b}📌A    {r}METHOD 1{reset}')
+    print(f'       {b}📌B    {r}METHOD 2{reset}')
     linex()
     meth = input(f"       {y}★  {r}CHOICE {W}(A/B): {Y}{reset}").strip().upper()
     with tred(max_workers=30) as pool:
@@ -658,5 +659,6 @@ def login_2(uid):
 if __name__ == '__main__':
 
     BNG_71_()
+
 
 
