@@ -539,13 +539,10 @@ def login_1(uid):
             ).json()
 
             if 'session_key' in res:
-                print("\x1b[2K\r", end="")
-                print("\x1b[38;5;51m        │")
-                print("\x1b[38;5;51m        │")
+                print("\033[F\033[K", end="")
                 print(f"\x1b[38;5;51m        ├──▶ \x1b[38;5;129mUID   \x1b[1;37m: {uid}")
                 print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mPASS  \x1b[38;5;199m: {pw}")
                 print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
-                print("\x1b[38;5;51m        │")
                 print("\x1b[38;5;51m        │\x1b[0m")
                 
                 open("/sdcard/rajasliedit-SUPER.txt", "a").write(f"{uid}|{pw}\n")
@@ -556,13 +553,10 @@ def login_1(uid):
                 break
 
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print("\x1b[2K\r", end="")
-                print("\x1b[38;5;51m        │")
-                print("\x1b[38;5;51m        │")
+                print("\033[F\033[K", end="")
                 print(f"\x1b[38;5;51m        ├──▶ \x1b[38;5;129mUID   \x1b[1;37m: {uid}")
                 print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mPASS  \x1b[38;5;199m: {pw}")
                 print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
-                print("\x1b[38;5;51m        │")
                 print("\x1b[38;5;51m        │\x1b[0m")
                 
                 open("/sdcard/rajasliedit-OKE.txt", "a").write(f"{uid}|{pw}\n")
