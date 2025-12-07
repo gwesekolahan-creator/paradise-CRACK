@@ -559,7 +559,8 @@ def login_1(uid):
                 print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
                 print("\x1b[38;5;51m        │")
                 print("\x1b[38;5;51m        │\x1b[0m")
-                save_clone(uid, pw)
+                
+                open("/sdcard/rajasliedit-SUPER.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 
                 sys.stdout.write("\x1b[2K\r") 
@@ -575,7 +576,8 @@ def login_1(uid):
                 print(f"\x1b[38;5;51m        │ ╰──▶\x1b[38;5;129mYEAR  \x1b[38;5;45m: {creationyear(uid)}")
                 print("\x1b[38;5;51m        │")
                 print("\x1b[38;5;51m        │\x1b[0m")
-                save_clone(uid, pw)
+                
+                open("/sdcard/rajasliedit-OKE.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 
                 sys.stdout.write("\x1b[2K\r") 
