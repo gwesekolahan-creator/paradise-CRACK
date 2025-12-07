@@ -19,28 +19,14 @@ from os import system
 from datetime import datetime
 import socket
 
-BASE_DIR = "/data/data/com.termux/files/home/storage/shared/PARADISE"
-os.makedirs(BASE_DIR, exist_ok=True)
-
-# ==========================
-def save_clone(uid, pw):
-    # Ambil tanggal & jam sekarang
-    waktu = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # Ambil IP HP Kamu
-    try:
-        ip = socket.gethostbyname(socket.gethostname())
-    except:
-        ip = "UNKNOWN_IP"
-        
-    # Nama file tetap sama (tidak pakai tanggal)
-    clone_filename = "CLONE.txt"
-    clone_path = os.path.join(BASE_DIR, clone_filename)
-
-    # Simpan: UID|PASS|WAKTU|IP
-    with open(clone_path, "a") as f:
-        f.write(f"{uid}|{pw}|{waktu}|{ip}\n")
-        
+r = "\x1b[1;31m"  # merah
+g = "\x1b[1;32m"  # hijau
+y = "\x1b[1;33m"  # kuning
+b = "\x1b[1;34m"  # biru
+m = "\x1b[1;35m"  # ungu
+c = "\x1b[1;36m"  # cyan
+w = "\x1b[1;37m"  # putih
+reset = "\x1b[0m" # reset warna
 
 # Ensure required modules are installed
 modules = ['requests', 'urllib3', 'mechanize', 'rich']
