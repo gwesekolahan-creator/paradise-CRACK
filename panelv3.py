@@ -565,7 +565,7 @@ def login_1(uid):
 
                 # ================= PANEL CP BARU =====================
                 print("\033[F\033[K", end="")
-                print(f"{y}⭐{b}PARADISE{y}⭐{g}➤➤➤{y}✮{uid}✮{c}✮{pw}✮{r}✮{str(year)}✮{g}✅{reset}\n")
+                print(f"{y}⭐{b}PARADISE{y}⭐{g}➤➤➤{b}✮{y}{uid}{b}✮✮{c}{pw}{b}✮✮{r}{str(year)}{b}✮{g}✅{reset}\n")
     
                 open("/sdcard/PANEL-OK.txt", "a").write(f"{uid}|{pw}\n")
                 oks.append(uid)
@@ -659,6 +659,7 @@ def login_2(uid):
 if __name__ == '__main__':
 
     BNG_71_()
+
 
 
 
