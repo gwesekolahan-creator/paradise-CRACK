@@ -54,8 +54,9 @@ def extractor(data):
 
 
 # =========================
-#  TEMP MAIL API
+#  TEMP MAIL 1SECMAIL
 # =========================
+
 def GetEmail():
     r = requests.post("https://api.internal.temp-mail.io/api/v3/email/new").json()
     return r['email']
@@ -132,7 +133,7 @@ def main():
             'sex': "2",
 
             'field_names[4]': "reg_passwd__",
-            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:MrCode@123",
+            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:ahmantap1",
 
             'submit': "Sign Up",
 
@@ -173,9 +174,12 @@ def main():
                 confirm(uid, email, otp, ses)
             else:
                 print(f"{X} {R}NO OTP / POSSIBLY DISABLED")
+                open("/sdcard/CREAT_PARADISE_FAILED.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
                 linex()
+                
         else:
             print(f"{X} {R}CHECKPOINT")
+            open("/sdcard/CREAT_PARADISE_CHECKPOINT.txt","a").write(f"{uid}|ahmantap1\n")
             linex()
 
 
@@ -217,8 +221,8 @@ def confirm(uid, mail, otp, ses):
             return
 
         ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
-        print(f"{X} OK - {G}{uid}|VARKCOZERY123|{ck}")
-        open("/sdcard/CREAT_PARADISE.txt","a").write(f"{uid}|VARKCOZERY123@123|{ck}\n")
+        print(f"{X} OK - {G}{uid}|ahmantap1|{ck}")
+        open("/sdcard/CREAT_PARADISE.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
         linex()
 
     except Exception:
