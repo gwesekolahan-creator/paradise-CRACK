@@ -173,6 +173,7 @@ def main():
                 print(f"{X} EMAIL OTP - {G}{otp}")
                 confirm(uid, email, otp, ses)
             else:
+                ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
                 print(f"{X} {R}NO OTP / POSSIBLY DISABLED")
                 open("/sdcard/CREAT_PARADISE_FAILED.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
                 linex()
