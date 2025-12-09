@@ -6,6 +6,7 @@ from faker import Faker
 W = "\x1b[97m"
 G = "\x1b[38;5;46m"
 R = "\x1b[38;5;196m"
+m = "\x1b[1;35m"  # ungu
 X = f"{W}<{R}•{W}>"
 
 faker = Faker()
@@ -77,7 +78,7 @@ def GetCode(email):
         try:
             data = r.json()
         except:
-            print("DEBUG NON-JSON:", r.text[:200])
+            print(f"{r}DEBUG NON-JSON:", r.text[:200])
             return None
 
         # Struktur valid?
@@ -99,7 +100,7 @@ def GetCode(email):
         return None
 
     except Exception as e:
-        print("match", e)
+        print("DEBUG ERROR", e)
         return None
     
 # =========================
@@ -283,4 +284,5 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
