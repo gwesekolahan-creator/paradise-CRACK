@@ -2,11 +2,35 @@ import os, re, time, json, random, string
 import requests
 from bs4 import BeautifulSoup
 from faker import Faker
+import textwrap
 
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Referer": "https://tempmail.lol/",
+    "Origin": "https://tempmail.lol",
+    "Connection": "keep-alive",
+}
+
+# ============================
+#  RANDOM TANGGAL LAHIR
+# ============================
+day   = random.randint(1, 28)
+month = random.randint(1, 12)
+year  = random.randint(1993, 2007)
+
+r = "\x1b[1;31m"  # merah
+g = "\x1b[1;32m"  # hijau
+y = "\x1b[1;33m"  # kuning
+b = "\x1b[1;34m"  # biru
+m = "\x1b[1;35m"  # ungu
+c = "\x1b[1;36m"  # cyan
+w = "\x1b[1;37m"  # putih
+reset = "\x1b[0m" # reset warna
 W = "\x1b[97m"
 G = "\x1b[38;5;46m"
 R = "\x1b[38;5;196m"
-m = "\x1b[1;35m"  # ungu
 X = f"{W}<{R}•{W}>"
 
 faker = Faker()
@@ -54,53 +78,67 @@ def extractor(data):
     return result
 
 # ====================================================
+#  RANDOM GMAIL
+# ====================================================
+def RandomEmail():
+    # Domain random
+    domains = [
+        "gmail.com",
+        "hotmail.com",
+        "yahoo.com",
+        "outlook.com",
+        "mail.com",
+        "protonmail.com"
+    ]
+
+    first = faker.first_name().lower()
+    last  = faker.last_name().lower()
+    angka = random.randint(10, 9999)
+    domain = random.choice(domains)
+
+    return f"{first}{last}{angka}@{domain}"
+
+# ====================================================
 #  GET EMAIL (tempMail.lol)
 # ====================================================
 def GetEmail():
     try:
-        r = requests.get("https://api.tempmail.lol/generate").json()
-        return r["address"]     # hasil email
-    except:
+        r = ses.get("https://api.tempmail.lol/generate", timeout=10).json()
+        return r["address"]
+    except Exception as e:
+        print("EMAIL ERROR:", e)
         return None
 
 
-# ====================================================
-#  GET OTP CODE from inbox (tempMail.lol)
-# ====================================================
 def GetCode(email):
     try:
-        inbox = email.replace("@", "%40")
-        url = f"https://api.tempmail.lol/messages?inbox={inbox}"
+        url = f"https://api.tempmail.lol/messages?email={email}"
 
-        r = requests.get(url)
+        r = ses.get(url, timeout=10)
 
-        # Jika bukan JSON (403, HTML, dll.)
         try:
             data = r.json()
         except:
-            print(f"{m}DEBUG NON-JSON:", r.text[:200])
             return None
 
-        # Struktur valid?
-        if not data or "messages" not in data:
+        if "result" not in data:
             return None
 
-        # Loop semua pesan dalam inbox
-        for msg in data["messages"]:
+        for msg in data["result"]:
             body = (
                 msg.get("body", "") +
                 msg.get("text", "") +
                 msg.get("html", "")
             )
 
-            match = re.search(r"FB-(\d+)", body)
-            if match:
-                return match.group(1)
+            m = re.search(r"FB-(\d+)", body)
+            if m:
+                return m.group(1)
 
         return None
 
     except Exception as e:
-        print("DEBUG ERROR", e)
+        print("DEBUG ERROR:", e)
         return None
     
 # =========================
@@ -116,6 +154,9 @@ def banner():
 def linex():
     print(f"{W}———————————————————————————————")
 
+ses = requests.Session()
+ses.headers.update(HEADERS)
+
 
 # =========================
 #  MAIN REG PROCESS
@@ -126,6 +167,8 @@ def main():
     linex()
 
     for make in range(100):
+        time.sleep(3)
+        
         ses = requests.Session()
 
         # GET FORM
@@ -133,7 +176,7 @@ def main():
         form = extractor(resp.text)
 
         # EMAIL + NAME
-        email = GetEmail()
+        email = RandomEmail()
         first = faker.first_name()
         last = faker.last_name()
 
@@ -201,34 +244,36 @@ def main():
             uid = ses.cookies.get_dict()["c_user"]
             print(f"{X} FB UID - {G}{uid}")
 
-            # ===============================
-            #   WAIT OTP 5 DETIK
-            # ===============================
-
-            print(f"{X} WAITING OTP 20s ...")
-            start = time.time()
-            otp = None
-
-            while time.time() - start < 20:
-                otp = GetCode(email)
-                if otp:
-                    break
-                time.sleep(5)   # cek tiap 5 detik (lebih aman)
-
-
+            otp = GetCode(email)
             if otp:
                 print(f"{X} EMAIL OTP - {G}{otp}")
                 confirm(uid, email, otp, ses)
             else:
                 ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
-                print(f"{X} {R}NO OTP RECEIVED (TIMEOUT 20s)")
-                open("/sdcard/CREAT_PARADISE_FAILED.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
-                linex()
+                cookies = ses.cookies.get_dict()
+                cookie_text = str(cookies)
 
+                print(f"{X}{c}NO OTP RECEIVED (TIMEOUT)")
+                print(f"{X}{w}COOKIES :")
+                
+                width = 78
+                wrapped = textwrap.wrap(cookie_text, width=width - 4)
+
+                # PANEL ATAS
+                print(f"{y}┌" + "─" * (width - 2) + f"┐{reset}")
+
+                # ISI PANEL
+                for line in wrapped:
+                    print(f"{y}│ {g}{line.ljust(width - 4)}{y} │{reset}")
+
+                # PANEL BAWAH
+                print(f"{y}└" + "─" * (width - 2) + f"┘{reset}")
+
+                open("/sdcard/CREAT_PARADISE_TIMEOUT.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
+                linex()
                 
         else:
             print(f"{X} {R}CHECKPOINT")
-            open("/sdcard/CREAT_PARADISE_CHECKPOINT.txt","a").write(f"{uid}|ahmantap1\n")
             linex()
 
 
@@ -284,6 +329,4 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
-
-
 
