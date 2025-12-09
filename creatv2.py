@@ -253,8 +253,8 @@ def main():
                 cookies = ses.cookies.get_dict()
                 cookie_text = str(cookies)
 
-                print(f"{X}{c}NO OTP RECEIVED (TIMEOUT)")
-                print(f"{X}{w}COOKIES :")
+                print(f"{X}{b} NO OTP RECEIVED (TIMEOUT)")
+                print(f"{X}{w} COOKIES :")
                 
                 width = 78
                 wrapped = textwrap.wrap(cookie_text, width=width - 4)
@@ -329,4 +329,5 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
