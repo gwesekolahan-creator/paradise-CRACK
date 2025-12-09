@@ -52,36 +52,55 @@ def extractor(data):
             result[name] = value
     return result
 
-
-# =========================
-#  TEMP MAIL 1SECMAIL
-# =========================
-
+# ====================================================
+#  GET EMAIL (tempMail.lol)
+# ====================================================
 def GetEmail():
-    r = requests.get("https://api.tempmail.lol/generate").json()
-    return r["address"]     # hasil email
+    try:
+        r = requests.get("https://api.tempmail.lol/generate").json()
+        return r["address"]     # hasil email
+    except:
+        return None
 
 
+# ====================================================
+#  GET OTP CODE from inbox (tempMail.lol)
+# ====================================================
 def GetCode(email):
     try:
-        inbox = email.replace("@", "%40")   # encode email
-        r = requests.get(f'https://api.tempmail.lol/messages?inbox={inbox}').json()
+        inbox = email.replace("@", "%40")
+        url = f"https://api.tempmail.lol/messages?inbox={inbox}"
 
-        # Jika belum ada pesan
-        if not r or "messages" not in r:
+        r = requests.get(url)
+
+        # Jika bukan JSON (403, HTML, dll.)
+        try:
+            data = r.json()
+        except:
+            print("DEBUG NON-JSON:", r.text[:200])
             return None
 
-        # Cek semua pesan, ambil kode FB-XXXX
-        for msg in r["messages"]:
-            match = re.search(r'FB-(\d+)', msg.get("body", ""))
+        # Struktur valid?
+        if not data or "messages" not in data:
+            return None
+
+        # Loop semua pesan dalam inbox
+        for msg in data["messages"]:
+            body = (
+                msg.get("body", "") +
+                msg.get("text", "") +
+                msg.get("html", "")
+            )
+
+            match = re.search(r"FB-(\d+)", body)
             if match:
                 return match.group(1)
 
         return None
 
-    except:
+    except Exception as e:
+        print("match", e)
         return None
-
     
 # =========================
 #  UI PRINT
@@ -182,29 +201,33 @@ def main():
             print(f"{X} FB UID - {G}{uid}")
 
             # ===============================
-            #   WAIT OTP 20 DETIK
+            #   WAIT OTP 5 DETIK
             # ===============================
 
-            print(f"{X} WAITING OTP 60s ...")
+            print(f"{X} WAITING OTP 20s ...")
             start = time.time()
             otp = None
 
-            while time.time() - start < 60:
+            while time.time() - start < 20:
                 otp = GetCode(email)
                 if otp:
                     break
-                time.sleep(1)
+                time.sleep(5)   # cek tiap 5 detik (lebih aman)
+
 
             if otp:
                 print(f"{X} EMAIL OTP - {G}{otp}")
                 confirm(uid, email, otp, ses)
             else:
-                print(f"{X} {R}NO OTP RECEIVED (TIMEOUT 60s)")
+                ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
+                print(f"{X} {R}NO OTP RECEIVED (TIMEOUT 20s)")
+                open("/sdcard/CREAT_PARADISE_FAILED.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
                 linex()
 
                 
         else:
             print(f"{X} {R}CHECKPOINT")
+            open("/sdcard/CREAT_PARADISE_CHECKPOINT.txt","a").write(f"{uid}|ahmantap1\n")
             linex()
 
 
