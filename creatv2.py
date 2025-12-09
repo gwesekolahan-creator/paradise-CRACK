@@ -78,7 +78,7 @@ def GetCode(email):
         try:
             data = r.json()
         except:
-            print(f"{r}DEBUG NON-JSON:", r.text[:200])
+            print(f"{m}DEBUG NON-JSON:", r.text[:200])
             return None
 
         # Struktur valid?
@@ -284,5 +284,6 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
