@@ -243,18 +243,18 @@ def main():
 
         if "c_user" in ses.cookies.get_dict():
             uid = ses.cookies.get_dict()["c_user"]
-            print(f"{X} FB UID  - {G}{uid}")
+            print(f"{X} FB UID      - {G}{uid}")
 
             otp = GetCode(email)
             if otp:
-                print(f"{X} EMAIL OTP  - {G}{otp}")
+                print(f"{X} EMAIL OTP      - {G}{otp}")
                 confirm(uid, email, otp, ses)
             else:
                 ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
                 cookies = ses.cookies.get_dict()
                 cookie_text = str(cookies)
 
-                print(f"{X} BIRTH  - {G}{b_day}/{b_month}/{b_year}")
+                print(f"{X} BIRTH    - {G}{b_day}/{b_month}/{b_year}")
                 print(f"{X}{w} COOKIES ")
                 
                 width = 78
@@ -330,6 +330,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
