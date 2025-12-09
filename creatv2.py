@@ -16,9 +16,9 @@ HEADERS = {
 # ============================
 #  RANDOM TANGGAL LAHIR
 # ============================
-day   = random.randint(1, 28)
-month = random.randint(1, 12)
-year  = random.randint(1993, 2007)
+b_day   = random.randint(1, 28)
+b_month = random.randint(1, 12)
+b_year  = random.randint(1993, 2007)
 
 r = "\x1b[1;31m"  # merah
 g = "\x1b[1;32m"  # hijau
@@ -198,9 +198,10 @@ def main():
             'lastname': last,
 
             'field_names[1]': "birthday_wrapper",
-            'birthday_day': str(random.randint(1, 28)),
-            'birthday_month': str(random.randint(1, 12)),
-            'birthday_year': str(random.randint(1993, 2007)),
+            'birthday_day': str(b_day),
+            'birthday_month': str(b_month),
+            'birthday_year': str(b_year),
+
 
             'field_names[2]': "reg_email__",
             'reg_email__': email,
@@ -242,19 +243,19 @@ def main():
 
         if "c_user" in ses.cookies.get_dict():
             uid = ses.cookies.get_dict()["c_user"]
-            print(f"{X} FB UID - {G}{uid}")
+            print(f"{X} FB UID  - {G}{uid}")
 
             otp = GetCode(email)
             if otp:
-                print(f"{X} EMAIL OTP - {G}{otp}")
+                print(f"{X} EMAIL OTP  - {G}{otp}")
                 confirm(uid, email, otp, ses)
             else:
                 ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
                 cookies = ses.cookies.get_dict()
                 cookie_text = str(cookies)
 
-                print(f"{X}{b} NO OTP RECEIVED (TIMEOUT)")
-                print(f"{X}{w} COOKIES :")
+                print(f"{X} BIRTH  - {G}{b_day}/{b_month}/{b_year}")
+                print(f"{X}{w} COOKIES ")
                 
                 width = 78
                 wrapped = textwrap.wrap(cookie_text, width=width - 4)
@@ -329,6 +330,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
