@@ -249,15 +249,12 @@ def main():
             if otp:
                 print(f"{X} EMAIL OTP      - {c}{otp}")
                 confirm(uid, email, otp, ses)
-            else:
-                timeout_count += 1
-                
+            else:                              
                 ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
                 cookies = ses.cookies.get_dict()
                 cookie_text = str(cookies)
 
                 print(f"{X} BIRTH   - {c}{b_day}/{b_month}/{b_year}{reset}")
-                print(f"{X} SUKCES  - {R}{w}「{timeout_count}{w}」{reset}")
                 print(f"{X}{w} COOKIES ")
                 
                 width = 78
@@ -333,6 +330,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
