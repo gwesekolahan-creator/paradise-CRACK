@@ -166,7 +166,7 @@ def main():
     input(f"{X} PRESS ENTER TO START....")
     linex()
 
-    for make in range(300):
+    for make in range(500):
         time.sleep(3)
         
         ses = requests.Session()
@@ -180,8 +180,8 @@ def main():
         first = faker.first_name()
         last = faker.last_name()
 
-        print(f"{X} NAME  - {G}{first} {last}")
-        print(f"{X} EMAIL - {G}{email}")
+        print(f"{X} NAME   - {c}{first} {last}")
+        print(f"{X} EMAIL  - {c}{email}")
 
         # PAYLOAD REGISTRATION
         payload = {
@@ -243,18 +243,20 @@ def main():
 
         if "c_user" in ses.cookies.get_dict():
             uid = ses.cookies.get_dict()["c_user"]
-            print(f"{X} FB UID      - {G}{uid}")
+            print(f"{X} FB UID - {c}{uid}")
 
             otp = GetCode(email)
             if otp:
-                print(f"{X} EMAIL OTP      - {G}{otp}")
+                print(f"{X} EMAIL OTP      - {c}{otp}")
                 confirm(uid, email, otp, ses)
             else:
+                timeout_count += 1
+                
                 ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
                 cookies = ses.cookies.get_dict()
                 cookie_text = str(cookies)
 
-                print(f"{X} BIRTH    - {G}{b_day}/{b_month}/{b_year}")
+                print(f"{X} BIRTH   - {c}{b_day}/{b_month}/{b_year}{w}「{timeout_count}{w}」{reset}")
                 print(f"{X}{w} COOKIES ")
                 
                 width = 78
@@ -330,6 +332,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
