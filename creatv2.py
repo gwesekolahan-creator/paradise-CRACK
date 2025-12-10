@@ -254,7 +254,7 @@ def main():
                 cookies = ses.cookies.get_dict()
                 cookie_text = str(cookies)
 
-                print(f"{X} BIRTH   - {c}{b_day}/{b_month}/{b_year}{reset}")
+                print(f"{X} BIRTH  - {c}{b_day}/{b_month}/{b_year}{reset}")
                 print(f"{X}{w} COOKIES ")
                 
                 width = 78
@@ -330,6 +330,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
