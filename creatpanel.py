@@ -48,11 +48,11 @@ cps = []
 # =========================
 def success_panel(data, width=78):
     print(f"{g}SUCCESS{reset}")
-
-    print(f"{y}┌" + "─" * (width - 3) + f"┐{reset}")
+    print(f"{g}Akun Berhasil Dibuat
+    print(f"{y}┌" + "─" * (width - 2) + f"─┐{reset}")
 
     title = "Informasi Akun Lengkap"
-    print(f"{y}│ {g}{title.ljust(width - 5)}{y} │{reset}")
+    print(f"{y}│ {g}{title.ljust(width - 4)}{y}  │{reset}")
 
     label_width = 15
     text_width = width - label_width - 6
@@ -77,7 +77,7 @@ def success_panel(data, width=78):
                 f"{str(v).ljust(text_width)}{y} │{reset}"
             )
 
-    print(f"{y}└" + "─" * (width - 3) + f"┘{reset}")
+    print(f"{y}└" + "─" * (width - 2) + f"─┘{reset}")
 
     
 # =========================
@@ -371,6 +371,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
