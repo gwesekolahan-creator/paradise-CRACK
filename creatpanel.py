@@ -168,8 +168,8 @@ def GetCode(email):
 # =========================
 def banner():
     os.system("clear")
-    print(f"{W}<{R}•{W}> FACEBOOK AUTO ID CREATOR")
-    print(f"{W}<{R}•{W}> CLEAN VERSION")
+    print(f"{W}<{R}•{W}> {b}PARADISE{reset}")
+    print(f"{W}<{R}•{W}> AUTO CREAT FACEBOOK ")
     print(f"{W}———————————————————————————————")
 
 
@@ -184,6 +184,7 @@ ses.headers.update(HEADERS)
 #  MAIN REG PROCESS
 # =========================
 def main():
+    global TOTAL_COOKIES
     banner()
     input(f"{X} PRESS ENTER TO START....")
     linex()
@@ -283,7 +284,7 @@ def main():
                     "Email": email,
                     "Jenis Kelamin": LKLK,
                     "Tanggal Lahir": f"{b_day}/{b_month}/{b_year}",
-                    "Total (Run Ini)": TOTAL_COOKIES,
+                    "Hasil Total": TOTAL_COOKIES,
                     "Cookie": ck
                 }
 
