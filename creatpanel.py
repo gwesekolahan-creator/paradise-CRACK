@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from faker import Faker
 import textwrap
 
-TOTAL_COOKIES = 0
+TOTAL_COOKIES = 1
 
 
 HEADERS = {
@@ -371,6 +371,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
