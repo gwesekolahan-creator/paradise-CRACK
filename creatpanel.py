@@ -48,7 +48,7 @@ cps = []
 # =========================
 def success_panel(data, width=78):
     print(f"{g}SUCCESS{reset}")
-    print(f"{g}Akun Berhasil Dibuat
+    print(f"{g}Akun Berhasil Dibuat")
     print(f"{y}┌" + "─" * (width - 2) + f"─┐{reset}")
 
     title = "Informasi Akun Lengkap"
@@ -371,6 +371,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
