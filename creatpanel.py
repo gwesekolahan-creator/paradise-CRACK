@@ -48,18 +48,37 @@ cps = []
 # =========================
 def success_panel(data, width=78):
     print(f"{g}SUCCESS{reset}")
-    print(f"{g}Akun Berhasil Dibuat - UID {data['uid']}{reset}")
 
-    print(f"{y}┌" + "─" * (width - 2) + f"┐{reset}")
-    print(f"{y}│ {g}Informasi Akun Lengkap".ljust(width - 1) + f"{y}│{reset}")
+    print(f"{y}┌" + "─" * (width - 3) + f"┐{reset}")
+
+    title = "Informasi Akun Lengkap"
+    print(f"{y}│ {g}{title.ljust(width - 5)}{y} │{reset}")
+
+    label_width = 15
+    text_width = width - label_width - 6
 
     for k, v in data.items():
-        if k == "uid":
-            continue
-        line = f"{k:<15}: {v}"
-        print(f"{y}│ {w}{line.ljust(width - 4)}{y} │{reset}")
+        if k.lower() == "cookie":
+            wrapped = textwrap.wrap(v, text_width)
 
-    print(f"{y}└" + "─" * (width - 2) + f"┘{reset}")
+            print(
+                f"{y}│ {w}{k.ljust(label_width)} : "
+                f"{wrapped[0].ljust(text_width)}{y} │{reset}"
+            )
+
+            for line in wrapped[1:]:
+                print(
+                    f"{y}│ {w}{' ' * label_width}   "
+                    f"{line.ljust(text_width)}{y} │{reset}"
+                )
+        else:
+            print(
+                f"{y}│ {w}{k.ljust(label_width)} : "
+                f"{str(v).ljust(text_width)}{y} │{reset}"
+            )
+
+    print(f"{y}└" + "─" * (width - 3) + f"┘{reset}")
+
     
 # =========================
 #   PREMIUM USER-AGENT
@@ -352,6 +371,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
