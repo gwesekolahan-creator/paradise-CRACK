@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from faker import Faker
 import textwrap
 
+TOTAL_COOKIES = 1
+TOTAL_CP = 0
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -32,13 +34,52 @@ W = "\x1b[97m"
 G = "\x1b[38;5;46m"
 R = "\x1b[38;5;196m"
 X = f"{W}<{R}•{W}>"
+T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
+LKLK = "male"
+pwpw = "admin22"
 
 faker = Faker()
 
 oks = []
 cps = []
+    
+# =========================
+# PANEL SUCCESS
+# =========================
+def success_panel(data, width=78):
+    print(f"{g}SUCCESS{reset}")
+    print(f"{g}Akun Berhasil Dibuat")
+    print(f"{y}┌" + "─" * (width - 2) + f"─┐{reset}")
 
+    title = "Informasi Akun Lengkap"
+    print(f"{y}│ {g}{title.ljust(width - 4)}{y}  │{reset}")
 
+    label_width = 15
+    text_width = width - label_width - 6
+
+    for k, v in data.items():
+        if k.lower() == "cookie":
+            wrapped = textwrap.wrap(v, text_width)
+
+            print(
+                f"{y}│ {w}{k.ljust(label_width)} : "
+                f"{wrapped[0].ljust(text_width)}{y} │{reset}"
+            )
+
+            for line in wrapped[1:]:
+                print(
+                    f"{y}│ {w}{' ' * label_width}   "
+                    f"{line.ljust(text_width)}{y} │{reset}"
+                )
+        else:
+            print(
+                f"{y}│ {w}{k.ljust(label_width)} : "
+                f"{str(v).ljust(text_width)}{y} │{reset}"
+            )
+
+    print(f"{y}└" + "─" * (width - 2) + f"─┘{reset}")
+
+    
 # =========================
 #   PREMIUM USER-AGENT
 # =========================
@@ -146,8 +187,8 @@ def GetCode(email):
 # =========================
 def banner():
     os.system("clear")
-    print(f"{W}<{R}•{W}> FACEBOOK AUTO ID CREATOR")
-    print(f"{W}<{R}•{W}> CLEAN VERSION")
+    print(f"{W}<{R}••{W}> {b}PARADISE{reset}")
+    print(f"{W}<{R}••{W}> AUTO CREAT FACEBOOK ")
     print(f"{W}———————————————————————————————")
 
 
@@ -162,12 +203,14 @@ ses.headers.update(HEADERS)
 #  MAIN REG PROCESS
 # =========================
 def main():
+    global TOTAL_COOKIES
+    global TOTAL_CP
     banner()
     input(f"{X} PRESS ENTER TO START....")
     linex()
 
-    for make in range(700):
-        time.sleep(3)
+    for make in range(5000):
+        time.sleep(2)
         
         ses = requests.Session()
 
@@ -180,9 +223,12 @@ def main():
         first = faker.first_name()
         last = faker.last_name()
 
-        print(f"{X} NAME   - {c}{first} {last}")
-        print(f"{X} EMAIL  - {c}{email}")
-
+      
+        print(f"{w}FACEBOOK NAME     : {c}{first} {last}")
+        print(f"{w}FACEBOOK EMAIL    : {c}{email}")
+        time.sleep(1)
+        print(f"{T}{m}[{w}CREAT ACCOUNT{m}]🚀{reset}")
+        
         # PAYLOAD REGISTRATION
         payload = {
             'ccp': "2",
@@ -243,7 +289,7 @@ def main():
 
         if "c_user" in ses.cookies.get_dict():
             uid = ses.cookies.get_dict()["c_user"]
-            print(f"{X} FB UID - {c}{uid}")
+            print(f"{X} FB UID   : {c}{uid}")
 
             otp = GetCode(email)
             if otp:
@@ -251,32 +297,31 @@ def main():
                 confirm(uid, email, otp, ses)
             else:                              
                 ck = ";".join([f"{k}={v}" for k,v in ses.cookies.get_dict().items()])
-                cookies = ses.cookies.get_dict()
-                cookie_text = str(cookies)
 
-                print(f"{X} BIRTH  - {c}{b_day}/{b_month}/{b_year}{reset}")
-                print(f"{X}{w} COOKIES ")
-                
-                width = 78
-                wrapped = textwrap.wrap(cookie_text, width=width - 4)
+                print("\033[F\033[K" * 5, end="")
+                data = {
+                    "uid": uid,
+                    "Nama Lengkap": f"{first} {last}",
+                    "Password": pwpw,
+                    "Email": email,
+                    "Jenis Kelamin": LKLK,
+                    "Tanggal Lahir": f"{b_day}/{b_month}/{b_year}",
+                    "Create Result": TOTAL_COOKIES,
+                    "Cookie": ck
+                }
 
-                # PANEL ATAS
-                print(f"{y}┌" + "─" * (width - 2) + f"┐{reset}")
+                success_panel(data)
 
-                # ISI PANEL
-                for line in wrapped:
-                    print(f"{y}│ {g}{line.ljust(width - 4)}{y} │{reset}")
-
-                # PANEL BAWAH
-                print(f"{y}└" + "─" * (width - 2) + f"┘{reset}")
 
                 open("/sdcard/CREAT_PARADISE_TIMEOUT.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
+                TOTAL_COOKIES += 1
                 linex()
                 
         else:
-            print(f"{X} {R}CHECKPOINT")
-            linex()
-
+            TOTAL_CP += 1
+            print("\033[F\033[K" * 4, end="")
+            print(f"{w}✖{R} CHECKPOINT {w}✖   {m}[{w}{TOTAL_CP}{m}]")
+            
 
 # =========================
 #  CONFIRM ACCOUNT
@@ -330,6 +375,19 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
