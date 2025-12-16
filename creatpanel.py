@@ -210,7 +210,7 @@ def main():
     linex()
 
     for make in range(5000):
-        time.sleep(1)
+        time.sleep(2)
         
         ses = requests.Session()
 
@@ -225,7 +225,6 @@ def main():
 
       
         print(f"{w}FACEBOOK NAME     : {c}{first} {last}")
-        time.sleep(1)
         print(f"{w}FACEBOOK EMAIL    : {c}{email}")
         time.sleep(1)
         print(f"{T}{m}[{w}CREAT ACCOUNT{m}]🚀{reset}")
@@ -376,6 +375,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
