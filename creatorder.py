@@ -313,7 +313,7 @@ def main():
                 success_panel(data)
 
 
-                open("/sdcard/CREAT_PARADISE_TIMEOUT.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
+                open("/sdcard/CREAT_PARADISE_TIMEOUT.txt","a").write(f"{uid}|{pwpw}|{ck}\n")
                 TOTAL_COOKIES += 1
                 linex()
                 
@@ -375,6 +375,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
