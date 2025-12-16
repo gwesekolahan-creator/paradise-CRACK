@@ -5,7 +5,7 @@ from faker import Faker
 import textwrap
 
 TOTAL_COOKIES = 1
-
+TOTAL_CP = 1
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -204,6 +204,7 @@ ses.headers.update(HEADERS)
 # =========================
 def main():
     global TOTAL_COOKIES
+    global TOTAL_CP
     banner()
     input(f"{X} PRESS ENTER TO START....")
     linex()
@@ -318,9 +319,10 @@ def main():
                 linex()
                 
         else:
+            TOTAL_CP += 1
             print("\033[F\033[K" * 4, end="")
-            print(f"{w}✖{R}CHECKPOINT{w}✖")
-
+            print(f"{w}✖{R} CHECKPOINT {w}✖   {m}[{w}{TOTAL_CP}{m}]")
+            
 
 # =========================
 #  CONFIRM ACCOUNT
@@ -374,6 +376,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
