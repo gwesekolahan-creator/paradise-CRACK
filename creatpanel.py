@@ -34,7 +34,7 @@ W = "\x1b[97m"
 G = "\x1b[38;5;46m"
 R = "\x1b[38;5;196m"
 X = f"{W}<{R}•{W}>"
-
+T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
 LKLK = "male"
 pwpw = "rahasia"
 
@@ -187,8 +187,8 @@ def GetCode(email):
 # =========================
 def banner():
     os.system("clear")
-    print(f"{W}<{R}•{W}> {b}PARADISE{reset}")
-    print(f"{W}<{R}•{W}> AUTO CREAT FACEBOOK ")
+    print(f"{W}<{R}••{W}> {b}PARADISE{reset}")
+    print(f"{W}<{R}••{W}> AUTO CREAT FACEBOOK ")
     print(f"{W}———————————————————————————————")
 
 
@@ -209,7 +209,7 @@ def main():
     linex()
 
     for make in range(700):
-        time.sleep(3)
+        time.sleep(2)
         
         ses = requests.Session()
 
@@ -222,10 +222,12 @@ def main():
         first = faker.first_name()
         last = faker.last_name()
 
-        print(f"{w}[{b}SIGN UP{b}]")
-        print(f"{X} NAME     : {c}{first} {last}")
-        print(f"{X} EMAIL    : {c}{email}")
-
+      
+        print(f"{w}FACEBOOK NAME     : {c}{first} {last}")
+        print(f"{w}FACEBOOK EMAIL    : {c}{email}")
+        time.sleep(1)
+        print(f"{T}{m}[{w}CREAT ACCOUNT{m}]🚀{reset}")
+        
         # PAYLOAD REGISTRATION
         payload = {
             'ccp': "2",
@@ -371,6 +373,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
