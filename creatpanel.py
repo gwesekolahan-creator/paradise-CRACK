@@ -222,7 +222,7 @@ def main():
         first = faker.first_name()
         last = faker.last_name()
 
-        linex()
+        print(f"{w}[{b}SIGN UP{b}]")
         print(f"{X} NAME     : {c}{first} {last}")
         print(f"{X} EMAIL    : {c}{email}")
 
@@ -303,7 +303,7 @@ def main():
                     "Email": email,
                     "Jenis Kelamin": LKLK,
                     "Tanggal Lahir": f"{b_day}/{b_month}/{b_year}",
-                    "Hasil Total": TOTAL_COOKIES,
+                    "Creat Result": TOTAL_COOKIES,
                     "Cookie": ck
                 }
 
@@ -316,7 +316,7 @@ def main():
                 
         else:
             print("\033[F\033[K" * 4, end="")
-            print(f"{X} {R}CHECKPOINT")
+            print(f"{w}✖{R}CHECKPOINT{w}✖")
 
 
 # =========================
@@ -371,6 +371,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
