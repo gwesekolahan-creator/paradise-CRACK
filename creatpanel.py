@@ -208,7 +208,7 @@ def main():
     input(f"{X} PRESS ENTER TO START....")
     linex()
 
-    for make in range(700):
+    for make in range(5000):
         time.sleep(2)
         
         ses = requests.Session()
@@ -373,6 +373,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
