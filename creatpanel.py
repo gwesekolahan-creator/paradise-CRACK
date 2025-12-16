@@ -305,7 +305,7 @@ def main():
                     "Email": email,
                     "Jenis Kelamin": LKLK,
                     "Tanggal Lahir": f"{b_day}/{b_month}/{b_year}",
-                    "Creat Result": TOTAL_COOKIES,
+                    "Create Result": TOTAL_COOKIES,
                     "Cookie": ck
                 }
 
@@ -373,6 +373,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
