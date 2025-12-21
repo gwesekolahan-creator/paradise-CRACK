@@ -124,36 +124,27 @@ def extractor(data):
 def RandomEmail():
     # Domain random
     domains = [
-        "@mail.tm",
-        "@tmails.net",
-        "@tmail.io",
-        "@tmail.ltd",
-        "@tmail.cloud",
-        "@tmail.cc",
-        "@tmail.email",
-        "@tmail.pro",
-        "@tmail.site",
-        "@tmail.online",
-        "@tmail.fun",
-        "@tempmail.io",
-        "@temp-mail.io",
-        "@tempmail.ltd",
-        "@tempemail.co",
-        "@tempemail.net",
-        "@temp-mail.org",
-        "@inboxkitten.com",
-        "@1secmail.com",
-        "@1secmail.org",
-        "@1secmail.net",
-        "@guerrillamail.com",
-        "@guerrillamail.net",
-        "@guerrillamail.org",
-        "@dispostable.com",
-        "@getnada.com",
-        "@dropmail.me",
+        "@rapidmail.xyz",
+        "@spamfree24.eu",
+        "@spamfree24.de",
+        "@muxi.com",
+        "@ggr.la",
+        "@trashmail.se",
+        "@spamfree24.info",
+        "@fexbox.org",
+        "@luxusmail.org",
+        "@spamkill.com",
         "@yopmail.com",
-        "@yopmail.net",
-        "@emailondeck.com"   
+        "@zippymail.info",
+        "@fakemail.net",
+        "@digital-mail.net",
+        "@spamgourmet.com",
+        "@fakeinbox.com",
+        "@hackermail.com",
+        "@spambox.us",
+        "@deadaddress.com",
+        "@mailnull.com"
+   
     ]
 
     first = faker.first_name().lower()
@@ -399,6 +390,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
