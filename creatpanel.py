@@ -36,7 +36,7 @@ R = "\x1b[38;5;196m"
 X = f"{W}<{R}•{W}>"
 T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
 LKLK = "male"
-pwpw = "cakdays19"
+pwpw = "SAM285"
 
 faker = Faker()
 
@@ -225,7 +225,7 @@ def main():
     linex()
 
     for make in range(5000):
-        time.sleep(2)
+        time.sleep(20)
         
         ses = requests.Session()
 
@@ -271,7 +271,7 @@ def main():
             'sex': "2",
 
             'field_names[4]': "reg_passwd__",
-            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:cakdays19",
+            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:SAM285",
 
             'submit': "Sign Up",
 
@@ -328,7 +328,7 @@ def main():
                 success_panel(data)
 
 
-                open("/sdcard/CREAT_cakdays19.txt","a").write(f"{uid}|{pwpw}|{ck}\n")
+                open("/sdcard/CREAT_SAM285.txt","a").write(f"{uid}|{pwpw}|{ck}\n")
                 TOTAL_COOKIES += 1
                 linex()
                 
@@ -390,6 +390,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
