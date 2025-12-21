@@ -36,7 +36,7 @@ R = "\x1b[38;5;196m"
 X = f"{W}<{R}•{W}>"
 T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
 LKLK = "male"
-pwpw = "rahasia"
+pwpw = "cakdays19"
 
 faker = Faker()
 
@@ -124,12 +124,36 @@ def extractor(data):
 def RandomEmail():
     # Domain random
     domains = [
-        "gmail.com",
-        "hotmail.com",
-        "yahoo.com",
-        "outlook.com",
-        "mail.com",
-        "protonmail.com"
+        "@mail.tm",
+        "@tmails.net",
+        "@tmail.io",
+        "@tmail.ltd",
+        "@tmail.cloud",
+        "@tmail.cc",
+        "@tmail.email",
+        "@tmail.pro",
+        "@tmail.site",
+        "@tmail.online",
+        "@tmail.fun",
+        "@tempmail.io",
+        "@temp-mail.io",
+        "@tempmail.ltd",
+        "@tempemail.co",
+        "@tempemail.net",
+        "@temp-mail.org",
+        "@inboxkitten.com",
+        "@1secmail.com",
+        "@1secmail.org",
+        "@1secmail.net",
+        "@guerrillamail.com",
+        "@guerrillamail.net",
+        "@guerrillamail.org",
+        "@dispostable.com",
+        "@getnada.com",
+        "@dropmail.me",
+        "@yopmail.com",
+        "@yopmail.net",
+        "@emailondeck.com"   
     ]
 
     first = faker.first_name().lower()
@@ -256,7 +280,7 @@ def main():
             'sex': "2",
 
             'field_names[4]': "reg_passwd__",
-            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:ahmantap1",
+            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:cakdays19",
 
             'submit': "Sign Up",
 
@@ -313,7 +337,7 @@ def main():
                 success_panel(data)
 
 
-                open("/sdcard/CREAT_PARADISE_TIMEOUT.txt","a").write(f"{uid}|ahmantap1|{ck}\n")
+                open("/sdcard/CREAT_cakdays19.txt","a").write(f"{uid}|{pwpw}|{ck}\n")
                 TOTAL_COOKIES += 1
                 linex()
                 
@@ -375,6 +399,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
