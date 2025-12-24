@@ -231,7 +231,7 @@ def main():
     linex()
 
     for make in range(5000):
-        time.sleep(20)
+        time.sleep(12)
         
         ses = requests.Session()
 
@@ -396,6 +396,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
