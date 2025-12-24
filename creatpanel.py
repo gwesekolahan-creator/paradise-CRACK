@@ -4,6 +4,28 @@ from bs4 import BeautifulSoup
 from faker import Faker
 import textwrap
 
+# ==============================
+# PILIH PASSWORD (pwpw)
+# ==============================
+print("""
+Pilih Password:
+1. ahmantap1
+2. custom
+""")
+
+pilih = input("Pilihan (1/2): ").strip()
+
+if pilih == "1":
+    pwpw = "cakdaya19"
+elif pilih == "2":
+    pwpw = input("Masukkan password custom: ").strip()
+    if not pwpw:
+        print("Password tidak boleh kosong!")
+        exit()
+else:
+    print("Pilihan tidak valid!")
+    exit()
+
 TOTAL_COOKIES = 1
 TOTAL_CP = 0
 
@@ -36,7 +58,6 @@ R = "\x1b[38;5;196m"
 X = f"{W}<{R}•{W}>"
 T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
 LKLK = "male"
-pwpw = "SAM285"
 
 faker = Faker()
 
@@ -124,27 +145,12 @@ def extractor(data):
 def RandomEmail():
     # Domain random
     domains = [
-        "@rapidmail.xyz",
-        "@spamfree24.eu",
-        "@spamfree24.de",
-        "@muxi.com",
-        "@ggr.la",
-        "@trashmail.se",
-        "@spamfree24.info",
-        "@fexbox.org",
-        "@luxusmail.org",
-        "@spamkill.com",
-        "@yopmail.com",
-        "@zippymail.info",
-        "@fakemail.net",
-        "@digital-mail.net",
-        "@spamgourmet.com",
-        "@fakeinbox.com",
-        "@hackermail.com",
-        "@spambox.us",
-        "@deadaddress.com",
-        "@mailnull.com"
-   
+        "gmail.com",
+        "hotmail.com",
+        "yahoo.com",
+        "outlook.com",
+        "mail.com",
+        "protonmail.com"     
     ]
 
     first = faker.first_name().lower()
@@ -271,7 +277,7 @@ def main():
             'sex': "2",
 
             'field_names[4]': "reg_passwd__",
-            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:SAM285",
+            'encpass': f"#PWD_BROWSER:0:{int(time.time())}:{pwpw}",
 
             'submit': "Sign Up",
 
@@ -328,7 +334,7 @@ def main():
                 success_panel(data)
 
 
-                open("/sdcard/CREAT_SAM285.txt","a").write(f"{uid}|{pwpw}|{ck}\n")
+                open("/sdcard/PARADISE_CREAT.txt","a").write(f"{uid}|{pwpw}|{ck}\n")
                 TOTAL_COOKIES += 1
                 linex()
                 
@@ -390,6 +396,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
