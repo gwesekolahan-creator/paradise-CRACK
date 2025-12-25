@@ -4,6 +4,32 @@ from bs4 import BeautifulSoup
 from faker import Faker
 import textwrap
 
+import sys
+import time
+
+def ketik(teks, delay=0.03, enter=True):
+    for huruf in teks:
+        sys.stdout.write(huruf)
+        sys.stdout.flush()
+        time.sleep(delay)
+    if enter:
+        print()
+
+r = "\x1b[1;31m"  # merah
+g = "\x1b[1;32m"  # hijau
+y = "\x1b[1;33m"  # kuning
+b = "\x1b[1;34m"  # biru
+m = "\x1b[1;35m"  # ungu
+c = "\x1b[1;36m"  # cyan
+w = "\x1b[1;37m"  # putih
+reset = "\x1b[0m" # reset warna
+W = "\x1b[97m"
+G = "\x1b[38;5;46m"
+R = "\x1b[38;5;196m"
+X = f"{W}<{R}••{W}>"
+T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
+LKLK = "male"
+
 # ==============================
 # PILIH PASSWORD (pwpw)
 # ==============================
@@ -16,14 +42,48 @@ Pilih Password:
 pilih = input("Pilihan (1/2): ").strip()
 
 if pilih == "1":
-    pwpw = "cakdaya19"
+    pwpw = "ahmantap1"
 elif pilih == "2":
     pwpw = input("Masukkan password custom: ").strip()
     if not pwpw:
-        print("Password tidak boleh kosong!")
+        print(f"{y}Password tidak boleh kosong!{reset}")
         exit()
 else:
-    print("Pilihan tidak valid!")
+    print(f"{r}Pilihan tidak valid!{reser}")
+    exit()
+
+# ==============================
+# PILIH JUMLAH MEMBUAT BERAPA AKUN
+# ==============================
+
+print("""
+Pilih jumlah akun:
+1. 50 akun
+2. 100 akun
+3. 200 akun
+4. Custom
+""")
+
+pilih = input("Pilihan: ").strip()
+
+if pilih == "1":
+    total = 50
+elif pilih == "2":
+    total = 100
+elif pilih == "3":
+    total = 200
+elif pilih == "4":
+    total = int(input("Masukkan jumlah custom: "))
+else:
+    print(f"{r}Pilihan tidak valid{reset}")
+    exit()
+
+try:
+    delay = float(input("Masukkan delay per akun (detik): "))
+    if delay < 0:
+        raise ValueError
+except:
+    print(f"{y}✮{m}Delay harus angka >= 0{reset}")
     exit()
 
 TOTAL_COOKIES = 1
@@ -44,20 +104,6 @@ b_day   = random.randint(1, 28)
 b_month = random.randint(1, 12)
 b_year  = random.randint(1993, 2007)
 
-r = "\x1b[1;31m"  # merah
-g = "\x1b[1;32m"  # hijau
-y = "\x1b[1;33m"  # kuning
-b = "\x1b[1;34m"  # biru
-m = "\x1b[1;35m"  # ungu
-c = "\x1b[1;36m"  # cyan
-w = "\x1b[1;37m"  # putih
-reset = "\x1b[0m" # reset warna
-W = "\x1b[97m"
-G = "\x1b[38;5;46m"
-R = "\x1b[38;5;196m"
-X = f"{W}<{R}•{W}>"
-T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
-LKLK = "male"
 
 faker = Faker()
 
@@ -150,7 +196,7 @@ def RandomEmail():
         "yahoo.com",
         "outlook.com",
         "mail.com",
-        "protonmail.com"     
+        "protonmail.com"   
     ]
 
     first = faker.first_name().lower()
@@ -230,8 +276,8 @@ def main():
     input(f"{X} PRESS ENTER TO START....")
     linex()
 
-    for make in range(5000):
-        time.sleep(12)
+    for make in range(total):
+        time.sleep(delay)
         
         ses = requests.Session()
 
@@ -245,10 +291,11 @@ def main():
         last = faker.last_name()
 
       
-        print(f"{w}FACEBOOK NAME     : {c}{first} {last}")
-        print(f"{w}FACEBOOK EMAIL    : {c}{email}")
-        time.sleep(1)
-        print(f"{T}{m}[{w}CREAT ACCOUNT{m}]🚀{reset}")
+        ketik(f"{w}REGISTER NAME     : {c}{first} {last}", 0.02)
+        ketik(f"{w}REGISTER EMAIL    : {c}{email}", 0.02)
+        time.sleep(0.5)
+        ketik(f"{T}{m}[{w}PROSES CREAT ACCOUNT{m}]🚀{reset}", 0.04)
+
         
         # PAYLOAD REGISTRATION
         payload = {
@@ -327,7 +374,7 @@ def main():
                     "Email": email,
                     "Jenis Kelamin": LKLK,
                     "Tanggal Lahir": f"{b_day}/{b_month}/{b_year}",
-                    "Create Result": TOTAL_COOKIES,
+                    "Creat Result": TOTAL_COOKIES,
                     "Cookie": ck
                 }
 
@@ -341,8 +388,8 @@ def main():
         else:
             TOTAL_CP += 1
             print("\033[F\033[K" * 4, end="")
-            print(f"{w}✖{R} CHECKPOINT {w}✖   {m}[{w}{TOTAL_CP}{m}]")
-            
+            ketik(f"{w}✖{R} CHECKPOINT {w}✖   {m}[{w}{TOTAL_CP}{m}]", 0.03)
+
 
 # =========================
 #  CONFIRM ACCOUNT
@@ -396,16 +443,6 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
 
 
 
