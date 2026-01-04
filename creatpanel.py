@@ -89,26 +89,39 @@ if "." not in DOMAIN_EMAIL:
 
 print(f"[ DOMAIN DIGUNAKAN ] {DOMAIN_EMAIL}\n")
 
+# ===== PILIH NAMA FILE HASIL (ANDROID) =====
+base_path = "/sdcard"
+
+nama_file = input("Masukkan nama file hasil (tanpa .txt): ").strip()
+
+if not nama_file:
+    nama_file = "PARADISE_CREAT"
+
+FILE_HASIL = f"{base_path}/{nama_file}.txt"
+
+print(f"[ FILE HASIL ] {FILE_HASIL}\n")
+
+
 # ==============================
 # PILIH JUMLAH MEMBUAT BERAPA AKUN
 # ==============================
 
 print("""
 Pilih jumlah akun:
-1. 50 akun
-2. 100 akun
-3. 200 akun
+1. 5 akun
+2. 10 akun
+3. 15 akun
 4. Custom
 """)
 
 pilih = input("Pilihan: ").strip()
 
 if pilih == "1":
-    total = 50
+    total = 5
 elif pilih == "2":
-    total = 100
+    total = 10
 elif pilih == "3":
-    total = 200
+    total = 15
 elif pilih == "4":
     total = int(input("Masukkan jumlah custom: "))
 else:
@@ -406,7 +419,9 @@ def main():
                 success_panel(data)
 
 
-                open("/sdcard/PARADISE_CREAT.txt","a").write(f"{uid}|{pwpw}|{email}|{ck}\n")
+                open(FILE_HASIL, "a").write(
+                    f"{uid}|{pwpw}|{email}|{ck}\n"
+                )
                 TOTAL_COOKIES += 1
                 linex()
                 
@@ -468,6 +483,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
