@@ -30,6 +30,19 @@ X = f"{W}<{R}••{W}>"
 T = f"{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}.{w}.{r}."
 LKLK = "male"
 
+print("[ PILIH MODE ]")
+print("1. Langsung (tanpa pause)")
+print("2. Pause (ENTER tiap akun)")
+
+mode = input("Pilih mode (1/2): ").strip()
+
+if mode == "2":
+    MODE_PAUSE = True
+else:
+    MODE_PAUSE = False
+
+print(f"[ MODE ] {'PAUSE' if MODE_PAUSE else 'LANGSUNG'}\n")
+
 # ==============================
 # PILIH PASSWORD (pwpw)
 # ==============================
@@ -426,6 +439,12 @@ def main():
                 TOTAL_COOKIES += 1
                 linex()
                 
+                if MODE_PAUSE:
+                    lanjut = input("ENTER = lanjut | Q = berhenti : ").strip().lower()
+                    if lanjut == "q":
+                        print("Stop.")
+                        break
+                        
         else:
             TOTAL_CP += 1
             print("\033[F\033[K" * 4, end="")
@@ -484,6 +503,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
