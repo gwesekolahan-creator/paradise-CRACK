@@ -52,6 +52,43 @@ else:
     print(f"{r}Pilihan tidak valid!{reser}")
     exit()
 
+# ===== PILIH DOMAIN (SEKALI SAJA) =====
+domains = [
+    "gmail.com",
+    "hotmail.com",
+    "random-mail.com",
+    "outlook.com",
+    "tmail.link",
+    "protonmail.com"
+]
+
+print("\n[ PILIH DOMAIN EMAIL ]")
+for i, d in enumerate(domains, 1):
+    print(f"{i}. {d}")
+print("0. Random")
+print("C. Custom (isi sendiri)")
+
+pilih = input("Pilihan: ").strip().lower()
+
+if pilih == "0":
+    DOMAIN_EMAIL = random.choice(domains)
+
+elif pilih == "c":
+    DOMAIN_EMAIL = input("Masukkan domain custom: ").strip()
+    if not DOMAIN_EMAIL:
+        DOMAIN_EMAIL = random.choice(domains)
+
+elif pilih.isdigit() and 1 <= int(pilih) <= len(domains):
+    DOMAIN_EMAIL = domains[int(pilih) - 1]
+
+else:
+    DOMAIN_EMAIL = random.choice(domains)
+
+if "." not in DOMAIN_EMAIL:
+    DOMAIN_EMAIL += ".com"
+
+print(f"[ DOMAIN DIGUNAKAN ] {DOMAIN_EMAIL}\n")
+
 # ==============================
 # PILIH JUMLAH MEMBUAT BERAPA AKUN
 # ==============================
@@ -189,22 +226,10 @@ def extractor(data):
 #  RANDOM GMAIL
 # ====================================================
 def RandomEmail():
-    # Domain random
-    domains = [
-        "gmail.com",
-        "hotmail.com",
-        "yahoo.com",
-        "outlook.com",
-        "mail.com",
-        "protonmail.com"   
-    ]
-
     first = faker.first_name().lower()
     last  = faker.last_name().lower()
     angka = random.randint(10, 9999)
-    domain = random.choice(domains)
-
-    return f"{first}{last}{angka}@{domain}"
+    return f"{first}{last}{angka}@{DOMAIN_EMAIL}"
 
 # ====================================================
 #  GET EMAIL (tempMail.lol)
@@ -381,7 +406,7 @@ def main():
                 success_panel(data)
 
 
-                open("/sdcard/PARADISE_CREAT.txt","a").write(f"{uid}|{pwpw}|{ck}\n")
+                open("/sdcard/PARADISE_CREAT.txt","a").write(f"{uid}|{pwpw}|{email}|{ck}\n")
                 TOTAL_COOKIES += 1
                 linex()
                 
@@ -443,6 +468,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
