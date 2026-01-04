@@ -413,7 +413,8 @@ def main():
                     "Jenis Kelamin": LKLK,
                     "Tanggal Lahir": f"{b_day}/{b_month}/{b_year}",
                     "Creat Result": TOTAL_COOKIES,
-                    "Cookie": ck
+                    "Cookie": ck,
+                    "Chekpoint": TOTAL_CP
                 }
 
                 success_panel(data)
@@ -483,6 +484,7 @@ def confirm(uid, mail, otp, ses):
 # =========================
 if __name__ == "__main__":
     main()
+
 
 
 
